@@ -1,11 +1,8 @@
 import { Box, Grid, Container, useTheme, useMediaQuery } from "@mui/material";
-import Second from "./Second";
-import Third from "./Third";
-import Forth from "./Forth";
+
 import { Colors } from "../../constants/pallette";
 import * as Styled from "./styles";
 import { i18n } from "../../translations/i18n";
-import InstaAvatar from "../../components/InstaAvatar";
 
 const Footer = () => {
   const Theme = useTheme();
@@ -13,22 +10,14 @@ const Footer = () => {
 
   const renderLaptop = () => {
     return (
-      <Box style={{ backgroundColor: Colors.roastedYellow }}>
+      <Box style={{ backgroundColor: "black" }}>
         <Container maxWidth='xl'>
           <Grid
             container
             justifyContent='space-between'
             style={{ paddingTop: "30px", paddingBottom: "30px" }}
           >
-            <Grid item>
-              <Second />
-            </Grid>
-            <Grid item>
-              <Third />
-            </Grid>
-            <Grid item>
-              <Forth />
-            </Grid>
+
           </Grid>
         </Container>
       </Box>
@@ -44,21 +33,12 @@ const Footer = () => {
         alignItems="center"
         rowGap={2}
         style={{
-          backgroundColor: Colors.roastedYellow,
+          backgroundColor: "black",
           paddingTop: "30px",
           paddingBottom: "30px",
         }}
       >
-        <Styled.STypography>xxxx@gmail.com</Styled.STypography>
-        <Box display='flex' alignItems='center' columnGap={2}>
-          <Styled.STypography>
-            {i18n.t("footer.third.first")}
-          </Styled.STypography>
-          <InstaAvatar backgroundColor='black' color='white' />
-        </Box>
-        <Styled.STypography>{i18n.t("footer.second.second")}</Styled.STypography>
-        <Styled.STypography>{i18n.t("footer.third.second")}</Styled.STypography>
-        <Styled.STypography>{i18n.t("footer.second.third")}</Styled.STypography>
+
       </Box>
     );
   };

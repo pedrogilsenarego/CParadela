@@ -19,7 +19,7 @@ const Home = () => {
         <Grid container columnSpacing={10} rowSpacing={10} alignItems="center">
           {listImages.map((image, pos) => {
             return (
-              <Grid item xs={3}>
+              <Grid item xs={6} md={4} lg={3}>
                 <CardMedia image={image} key={pos} />
               </Grid>
             );

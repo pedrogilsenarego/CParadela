@@ -14,19 +14,7 @@ export const content = {
         contacts: "Contactos",
         instagram: "Instagram",
       },
-      footer: {
-        second: {
-          second: "Política de Privacidade",
-          third: "@ Àbolina 2023 | Todos os direitos reservados",
-        },
-        third: {
-          first: "Siga-nos",
-          second: "Este site está de acordo com o novo acordo Ortográfico",
-        },
-        forth: {
-          button: "Fale conosco",
-        },
-      },
+      footer: {},
       modules: {
         home: {
           mainTextBtn: "Leia Mais",
@@ -54,25 +42,7 @@ export const content = {
           forthTitle: "Porquê a audácia?",
           forth:
             "Por que sabemos que o edifício da existência se constrói abraçando desafios, vencendo dificuldades e medos, com vista à construção de um projeto de vida com sentido.",
-        },
-        books: {
-          book: {
-            bookTitle: "Título",
-            text: "Texto:",
-            design: "Ilustração:",
-            translation: "Tradução:",
-            pages: "Número de páginas:",
-            language: "Language:",
-            weight: "Peso:",
-            size: "Dimensões:",
-            collectionBrowser: "Mais da Coleção",
-            bookBrowser: "Folhear o Livro",
-            new: "Novo",
-            title: "Descrição",
-            writer: "Autor",
-            designer: "Ilustrador",
-            translator: "Tradutor",
-          },
+          works: "Trabalhos",
         },
       },
     },
