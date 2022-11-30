@@ -13,9 +13,15 @@ const About = () => {
       </Typography>
       <Typography
         align='justify'
-        style={{ marginTop: "60px", whiteSpace: "pre-line", width: "40%" }}
+        style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
       >
-        {i18n.t("modules.about.mainText")}
+        {i18n.t("modules.about.second")}
+      </Typography>
+      <Typography
+        align='justify'
+        style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
+      >
+        {i18n.t("modules.about.third")}
       </Typography>
       <Typography
         align='justify'

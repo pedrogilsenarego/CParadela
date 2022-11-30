@@ -31,16 +31,11 @@ export const content = {
         },
         about: {
           mainText:
-            "A Editora ÀBolina nasce para contar histórias. Histórias que valorizam a memória. Histórias que estimulam a esperança. Histórias que motivam para a audácia, para a coragem e resiliência.\n Publicamos livros criativos e de boa qualidade de texto e imagem, que fortificam o desejo de um bem maior em crianças e adolescentes. Em especial, esperamos que as nossas histórias respondam à necessidade das famílias de educarem os seus filhos como pessoas auto-confiantes, equilibradas, capazes de escolhas responsáveis, de pensar e discernir a verdade e de agir com bondade.",
-          secondTitle: "Porquê a memória?",
+            "Ricardo Conde Sousa was born in 1988 in Cascais, Portugal. He studied architecture at Universidade Lusíada de Lisboa and Accademia di Architettura di Mendrisio, where he was a student of Professor Valerio Olgiati and graduated under Professor Jonathan Sergison in 2012. Before establishing his own practice in 2017, Ricardo worked as an architect at Weberbrunner Architekten in Zürich, SCML in Lisbon and Atelier Peter Zumthor in Haldenstein. From 2016 until 2019 he was a teaching assistant at Studio Canevascini, under the Chair of Professor Mario Botta, at Accademia di Architettura di Mendrisio.",
           second:
-            "A memória, verdadeiro tesouro da Humanidade, atravessa os tempos, enriquecendo o pensamento, os valores e as ideias de cada uma das gerações.",
-          thirdTitle: "Porquê a esperança?",
+            "Sofia Paradela was born in 1989 in Lisbon, Portugal. She studied Product Design at Faculdade de Belas-Artes, in Lisbon, and Nuova Accademia di Belle Arti, in Milan. Later, she studied architecture, in Faculdade de Arquitectura da Universidade Técnica de Lisboa and Accademia di Architettura di Mendrisio. Here, she learned from Professor Valerio Olgiati and graduated in 2016 under Professors Francisco and Manuel Aires Mateus. Sofia worked as an intern at Aires Mateus e Associados in Lisbon and as an architect at Capaul&Blumenthal in Ilanz and at Atelier Peter Zumthor in Haldenstein. From 2020 she has been a lecturer at Accademia di Architettura di Mendrisio, leading her own first year Bachelor´s design studio, under the Chair of professor Valerio Olgiati.",
           third:
-            "A esperança, berço da vida e da criatividade, é o motor do são desenvolvimento, quer do corpo, quer da mente e quer do espírito. Alimentado pela esperança, o ser humano abre-se ao bom, ao belo e ao verdadeiro.",
-          forthTitle: "Porquê a audácia?",
-          forth:
-            "Por que sabemos que o edifício da existência se constrói abraçando desafios, vencendo dificuldades e medos, com vista à construção de um projeto de vida com sentido.",
+            "They are currently based in Lisbon where they founded their architecture practice in 2019.",
           works: "Works",
         },
       },
