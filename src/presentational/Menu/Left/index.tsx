@@ -1,23 +1,17 @@
-import { CardMedia } from "@mui/material";
-import logo from "../../../assets/images/logo.jpg";
+import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATHS } from "../../../constants/routes";
+import { i18n } from "../../../translations/i18n";
 
-interface Props {
-  height?: string;
-}
-
-const Left = ({ height }: Props) => {
+const Left = () => {
   const navigate = useNavigate();
   return (
-    <CardMedia
-      component='img'
-      height={height || "35"}
+    <Typography
+      style={{ fontSize: "24px", letterSpacing: "2px", fontWeight: 500 }}
       onClick={() => navigate(ROUTE_PATHS.HOME)}
-      image={logo}
-      style={{ cursor: "pointer" }}
-      alt='logo'
-    ></CardMedia>
+    >
+      {i18n.t("menuBar.brand")}
+    </Typography>
   );
 };
 

@@ -7,6 +7,7 @@ export const content = {
         audacity: "Audácia",
       },
       menuBar: {
+        brand: "CONDE PARADELA",
         home: "Home",
         books: "Livros",
         about: "Sobre nós",

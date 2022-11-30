@@ -37,12 +37,12 @@ const CardMedia = ({ image, alt, onClick, height, borderRadius }: Props) => {
       <MuiCardMedia
         onLoad={() => setImageLoading(false)}
         style={{
-          borderRadius: borderRadius ?? "4px",
+          borderRadius: borderRadius ?? "0px",
           cursor: "pointer",
           opacity: imageLoading ? 0 : 1,
         }}
         component='img'
-        height={height || '120'}
+        height={height || 'auto'}
         image={image}
         alt={alt || ""}
         onClick={handleClick}

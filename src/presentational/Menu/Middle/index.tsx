@@ -21,11 +21,7 @@ const Middle = ({ setOpenDrawer }: Props) => {
         style={{ width: "300px" }}
       >
         <Grid item>
-          <Button
-            title={i18n.t("menuBar.home")}
-            path={ROUTE_PATHS.HOME}
-            setOpenDrawer={setOpenDrawer}
-          />
+
         </Grid>
         <Grid item>
           <Button

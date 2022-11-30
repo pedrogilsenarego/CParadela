@@ -1,7 +1,6 @@
 import UpScroller from "../presentational/UpScroller";
 import Header from "../presentational/Menu";
 import Footer from "../presentational/Footer";
-import TopBar from "../presentational/TopBar";
 import { Grid } from "@mui/material";
 
 const HomepageLayout = (props: any) => {

@@ -1,5 +1,4 @@
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { Colors } from "../../../constants/pallette";
 import { i18n } from "../../../translations/i18n";
 import InstaAvatar from "../../../components/InstaAvatar";
 import { useDispatch } from "react-redux";
@@ -22,21 +21,17 @@ const Right = () => {
       {!mobile && (
         <Grid item>
           <Box
-            style={{
-              borderRight: "solid 2px",
-              paddingRight: "10px",
-              borderColor: "white",
-            }}
+
           >
-            <InstaAvatar backgroundColor='white' color={Colors.tealc} />
+            <InstaAvatar backgroundColor='white' color="darkGrey" />
           </Box>
         </Grid>
       )}
       <Grid>
-        <Box style={{ paddingLeft: "10px", borderColor: "white" }}>
+        <Box >
           <Typography
             fontSize={mobile ? "24px" : "auto"}
-            color='white'
+            color='darkGrey'
             onClick={() => {
               changeLanguage("pt");
 
@@ -47,7 +42,7 @@ const Right = () => {
           </Typography>
           <Typography
             fontSize={mobile ? "24px" : "auto"}
-            color='white'
+            color='darkGrey'
             onClick={() => {
               changeLanguage("en");
             }}
