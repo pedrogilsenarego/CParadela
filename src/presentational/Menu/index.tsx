@@ -11,10 +11,16 @@ import Right from "./Right";
 
 import { useSelector } from "react-redux";
 import { State } from "../../slicer/types";
+import { useLocation } from "react-router";
+import { ROUTE_PATHS } from "../../constants/routes";
 
 const Menu = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
+
+  const location = useLocation()
+
+  console.log(location)
 
   const lang = useSelector<State, string>(
     (state) => state.general.lang || "PT"
@@ -33,10 +39,10 @@ const Menu = () => {
           <Grid item>
             <Left />
           </Grid>
-
-          <Grid item>
+          {location.pathname === ROUTE_PATHS.HOME && (<Grid item>
             <Right />
-          </Grid>
+          </Grid>)}
+
         </Grid>
 
       </Box >

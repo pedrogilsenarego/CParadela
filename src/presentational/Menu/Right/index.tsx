@@ -10,6 +10,7 @@ import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 import { State } from "../../../slicer/types";
 
 const Right = () => {
+
   const changeLanguage = (lng: string) => {
     dispatch(updateLang(lng.toUpperCase()));
     i18n.changeLanguage(lng);
@@ -21,6 +22,7 @@ const Right = () => {
   const filteringSignal = useSelector<State>(
     (state) => state.general.projectFiltering || false
   );
+
 
   const handleFilter = () => {
     if (!filteringSignal) {

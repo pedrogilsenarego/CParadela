@@ -1,10 +1,17 @@
 import { i18n } from "../../translations/i18n";
-import { Typography, Container } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { listWorks } from "./constants";
 
 const About = () => {
+
+  const Theme = useTheme();
+  const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   return (
-    <Container maxWidth='xl'>
+    <div style={{
+
+      marginLeft: mobile ? "20px" : "80px",
+
+    }}>
       <Typography
         align='justify'
         style={{ whiteSpace: "pre-line", width: "40%" }}
@@ -41,7 +48,7 @@ const About = () => {
           </Typography>
         );
       })}
-    </Container>
+    </div>
   );
 };
 
