@@ -3,7 +3,9 @@ import CardMedia from "../../components/CardMedia";
 import { projects, references } from "../../assets/content/projects";
 import { useSelector } from "react-redux";
 import { State } from "../../slicer/types";
-
+import { motion } from "framer-motion";
+import { shuffleArray } from "../../utils/shuffleArray";
+import { useMemo } from "react";
 
 const Home = () => {
   const Theme = useTheme();
@@ -14,7 +16,11 @@ const Home = () => {
     (state) => state.general.projectFiltering || false
   );
 
-  const list = filteringSignal ? projects : projects.concat(references)
+  const list = projects.concat(references);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const shuffledArray = useMemo(() => shuffleArray(list), [])
+  const filteredArray = filteringSignal ? shuffledArray.filter(obj => { return obj.type === "project" }) : shuffledArray
+
 
 
   return (
@@ -32,10 +38,20 @@ const Home = () => {
           rowSpacing={mobile ? "20px" : "40px"}
           alignItems='center'
         >
-          {list.map((item, pos) => {
+          {filteredArray.map((item, pos) => {
             return (
               <Grid item xs={6} md={4} xl={extraLarge ? 2.4 : 3}>
-                <CardMedia image={item.mainImage} title={item.title} key={pos} />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <CardMedia
+                    image={item.mainImage}
+                    title={item.title}
+                    key={pos}
+                  />
+                </motion.div>
               </Grid>
             );
           })}
