@@ -55,13 +55,12 @@ const Menu = () => {
             style={{ height: "80px" }}
           >
 
-            <Grid item xs={9}>
+            <Grid item xs={11}>
               <Left />
             </Grid>
             <Grid item xs={1} textAlign='right'>
-              <Typography color='whitesmoke' fontSize='12px'>
-                {lang}
-              </Typography>
+              <Right />
+
             </Grid>
           </Grid>
         </Container>
