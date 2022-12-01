@@ -39,6 +39,10 @@ export const content = {
           works: "Works",
         },
       },
+      projects: {
+        projectBlueM: "fweiufehiewu",
+        projectBlueT: "Titulo",
+      },
     },
   },
 };

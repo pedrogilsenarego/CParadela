@@ -6,17 +6,13 @@ import {
   useMediaQuery,
   Typography,
 } from "@mui/material";
-import { FiMenu } from "react-icons/fi";
-import { Colors } from "../../constants/pallette";
 import Left from "./Left";
 import Right from "./Right";
-import MobileMainDrawer from "./MobileMainDrawer";
-import { useState } from "react";
+
 import { useSelector } from "react-redux";
 import { State } from "../../slicer/types";
 
 const Menu = () => {
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
 
@@ -26,45 +22,39 @@ const Menu = () => {
 
   const laptopRender = () => {
     return (
-      <Box sx={{ flexGrow: 1 }}>
-        <Container maxWidth="xl">
-          <Grid
-            container
-            justifyContent='space-between'
-            alignItems='center'
-            style={{ height: "80px" }}
-          >
-            <Grid item>
-              <Left />
-            </Grid>
+      <Box sx={{ flexGrow: 1, marginLeft: mobile ? "20px" : "80px", marginRight: mobile ? "20px" : "80px" }}>
 
-            <Grid item>
-              <Right />
-            </Grid>
+        <Grid
+          container
+          justifyContent='space-between'
+          alignItems='center'
+          style={{ height: "80px" }}
+        >
+          <Grid item>
+            <Left />
           </Grid>
-        </Container>
-      </Box>
+
+          <Grid item>
+            <Right />
+          </Grid>
+        </Grid>
+
+      </Box >
     );
   };
 
   const mobileRender = () => {
     return (
-      <Box sx={{ backgroundColor: Colors.tealc }}>
+      <Box>
         <Container>
           <Grid
             container
             columnSpacing={1}
-            justifyContent='center'
+            justifyContent='start'
             alignItems='center'
             style={{ height: "80px" }}
           >
-            <Grid item xs={2}>
-              <FiMenu
-                size='2em'
-                color='white'
-                onClick={() => setOpenDrawer(true)}
-              />
-            </Grid>
+
             <Grid item xs={9}>
               <Left />
             </Grid>
@@ -82,7 +72,7 @@ const Menu = () => {
   return (
     <>
       {mobile ? mobileRender() : laptopRender()}
-      <MobileMainDrawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+
     </>
   );
 };

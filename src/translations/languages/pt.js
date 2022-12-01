@@ -39,6 +39,10 @@ export const content = {
             "They are currently based in Lisbon where they founded their architecture practice in 2019.",
           works: "Trabalhos",
         },
+        projects: {
+          projectBlueM: "fweiufehiewu",
+          projectBlueT: "Titulo",
+        },
       },
     },
   },
