@@ -17,8 +17,9 @@ const Project = () => {
       }}
     >
 
+
       <img
-        style={{ height: "80vh" }}
+        style={{ height: mobile ? "auto" : "80vh", maxWidth: "100%" }}
         src={projects[Number(id)].mainImage}
         alt={projects[Number(id)].title}
         loading="lazy"
