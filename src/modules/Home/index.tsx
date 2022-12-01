@@ -1,11 +1,21 @@
-import { Container, Grid, useTheme, useMediaQuery } from "@mui/material";
+import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import CardMedia from "../../components/CardMedia";
-import { projects } from "../../assets/content/projects";
+import { projects, references } from "../../assets/content/projects";
+import { useSelector } from "react-redux";
+import { State } from "../../slicer/types";
+
 
 const Home = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const extraLarge = useMediaQuery(Theme.breakpoints.up(2000));
+
+  const filteringSignal = useSelector<State>(
+    (state) => state.general.projectFiltering || false
+  );
+
+  const list = filteringSignal ? projects : projects.concat(references)
+
 
   return (
     <>
@@ -22,10 +32,10 @@ const Home = () => {
           rowSpacing={mobile ? "20px" : "40px"}
           alignItems='center'
         >
-          {projects.map((image, pos) => {
+          {list.map((item, pos) => {
             return (
               <Grid item xs={6} md={4} xl={extraLarge ? 2.4 : 3}>
-                <CardMedia image={image} key={pos} />
+                <CardMedia image={item.mainImage} key={pos} />
               </Grid>
             );
           })}

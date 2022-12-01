@@ -8,7 +8,8 @@ const INITIAL_STATE = {
   apiRequestMessage: "",
   apiRequestType: null,
   history: ["/"],
-  lang: "PT"
+  lang: "PT",
+  projectFiltering: false
 };
 
 interface Action {
@@ -85,6 +86,11 @@ const generalReducer = (state = INITIAL_STATE, action: Action) => {
             ...state,
             lang: action.payload,
           };
+          case generalTypes.PROJECT_FILTER:
+            return {
+              ...state,
+              projectFiltering: action.payload,
+            };
     
     default:
       return state;

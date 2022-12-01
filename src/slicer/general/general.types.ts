@@ -10,11 +10,15 @@ const generalTypes = {
   CLEAR_API_REQUEST: "CLEAR_API_REQUEST",
   SAVE_LAST_ENDPOINT: "SAVE_LAST_ENDPOINT",
   REMOVE_LAST_ENDPOINT: "REMOVE_LAST_ENDPOINT",
-  UPDATE_LANG: "UPDATE_LANG"
+  UPDATE_LANG: "UPDATE_LANG",
+  //
+  PROJECT_FILTER: "PROJECT_FILTER"
 };
 
 export interface GeneralState {
+  loading: boolean
   lang: string
+  projectFiltering: boolean
 }
 
 export default generalTypes;
