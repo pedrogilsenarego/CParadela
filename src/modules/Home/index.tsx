@@ -35,7 +35,7 @@ const Home = () => {
           {list.map((item, pos) => {
             return (
               <Grid item xs={6} md={4} xl={extraLarge ? 2.4 : 3}>
-                <CardMedia image={item.mainImage} key={pos} />
+                <CardMedia image={item.mainImage} title={item.title} key={pos} />
               </Grid>
             );
           })}
