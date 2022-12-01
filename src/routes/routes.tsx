@@ -6,6 +6,7 @@ import MainLayout from "../layouts/MainLayout";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
 const About = lazyWithRetryAndLoader(() => import("../modules/About"));
+const Project = lazyWithRetryAndLoader(() => import("../modules/Project"))
 
 
 export const routes: AppRoute[] = [
@@ -21,6 +22,12 @@ export const routes: AppRoute[] = [
     path: ROUTE_PATHS.ABOUT,
     component: <MainLayout>
       <About />
+    </MainLayout>,
+  },
+  {
+    path: ROUTE_PATHS.PROJECT,
+    component: <MainLayout>
+      <Project />
     </MainLayout>,
   },
 ];

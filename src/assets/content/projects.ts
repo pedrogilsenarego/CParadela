@@ -31,6 +31,7 @@ export const projectsA = [
 
 export const projects = [
   {
+    id: 0,
     type: "project",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://talkstar-assets.s3.amazonaws.com/production/playlists/playlist_520/how_architecture_can_connect_us.jpg",
@@ -38,6 +39,7 @@ export const projects = [
     mainText: i18n.t("projects.projectBlueM"),
   },
   {
+    id: 1,
     type: "project",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera-course-photos/06/05a0d0341111e7b22543f93104171e/architecture-1992423_1920.jpg?auto=format%2Ccompress&dpr=1&w=330&h=330&fit=fill&q=25",
@@ -45,6 +47,7 @@ export const projects = [
     mainText: i18n.t("projects.projectBlueM"),
   },
   {
+    id: 2,
     type: "project",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://payload.cargocollective.com/1/19/618130/12243704/17_-simplicity-day-details-Evangelia-Kiosse_670.jpg",
@@ -52,6 +55,7 @@ export const projects = [
     mainText: i18n.t("projects.projectBlueM"),
   },
   {
+    id: 3,
     type: "project",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://payload.cargocollective.com/1/19/618130/12243704/sim17_670.png",
@@ -59,6 +63,7 @@ export const projects = [
     mainText: i18n.t("projects.projectBlueM"),
   },
   {
+    id:4,
     type: "project",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://static.kent.ac.uk/nexus/ems/1497.jpg",
@@ -69,6 +74,7 @@ export const projects = [
 
 export const references = [
   {
+    id: 0,
     type: "reference",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://payload.cargocollective.com/1/19/618130/12243704/sim17_670.png",
@@ -76,6 +82,7 @@ export const references = [
     mainText: i18n.t("projects.projectBlueM"),
   },
   {
+    id: 1,
     type: "reference",
     title: i18n.t("projects.projectBlueT"),
     mainImage: "https://payload.cargocollective.com/1/19/618130/12243704/sim17_670.png",

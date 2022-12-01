@@ -37,6 +37,8 @@ export const content = {
           third:
             "They are currently based in Lisbon where they founded their architecture practice in 2019.",
           works: "Works",
+          email: "info@condeparadela.com",
+          address: "praça joão do rio 8, rc dto.\n 1000-180 lisboa\n Portugal",
         },
       },
       projects: {

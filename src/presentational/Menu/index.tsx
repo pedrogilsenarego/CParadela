@@ -20,8 +20,6 @@ const Menu = () => {
 
   const location = useLocation()
 
-  console.log(location)
-
   const lang = useSelector<State, string>(
     (state) => state.general.lang || "PT"
   );
@@ -65,8 +63,9 @@ const Menu = () => {
               <Left />
             </Grid>
             <Grid item xs={1} textAlign='right'>
-              <Right />
-
+              {location.pathname === ROUTE_PATHS.HOME && (<Grid item>
+                <Right />
+              </Grid>)}
             </Grid>
           </Grid>
         </Container>
