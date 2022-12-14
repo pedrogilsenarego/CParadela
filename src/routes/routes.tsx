@@ -3,6 +3,7 @@ import { AppRoute } from "./types";
 import { ROUTE_PATHS } from "../constants/routes";
 import { lazyWithRetryAndLoader } from "../utils/lazyWithRetry";
 import MainLayout from "../layouts/MainLayout";
+import ProjectLayout from "../layouts/ProjectLayout";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
 const About = lazyWithRetryAndLoader(() => import("../modules/About"));
@@ -26,8 +27,8 @@ export const routes: AppRoute[] = [
   },
   {
     path: ROUTE_PATHS.PROJECT,
-    component: <MainLayout>
+    component: <ProjectLayout>
       <Project />
-    </MainLayout>,
+    </ProjectLayout>,
   },
 ];

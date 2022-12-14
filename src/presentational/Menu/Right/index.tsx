@@ -40,13 +40,13 @@ const Right = () => {
         {filteringSignal ? (
           <CgMathPlus
             size='2em'
-            style={{ cursor: "pointer" }}
+            //style={{ cursor: "pointer" }}
             onClick={handleFilter}
           />
         ) : (
           <CgMathMinus
             size='2em'
-            style={{ cursor: "pointer" }}
+            //style={{ cursor: "pointer" }}
             onClick={handleFilter}
           />
         )}

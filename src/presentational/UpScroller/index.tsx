@@ -30,7 +30,7 @@ const UpScroller = () => {
         width: "30px",
         zIndex: 2000,
         height: "30px",
-        cursor: "pointer",
+        //cursor: "pointer",
         backgroundColor: hover ? "#0000001A" : "transparent"
       }}
       onMouseEnter={() => setHover(true)}

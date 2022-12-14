@@ -2,11 +2,13 @@ import UpScroller from "../presentational/UpScroller";
 import Header from "../presentational/Menu";
 import Footer from "../presentational/Footer";
 import { Grid } from "@mui/material";
+import Cursor from "../presentational/Cursor";
 
 const HomepageLayout = (props: any) => {
   return (
     <>
       <UpScroller />
+
       <Grid
         container
         direction='column'
