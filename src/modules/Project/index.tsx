@@ -1,6 +1,13 @@
 import { projects } from "../../assets/content/projects";
 import { useParams } from "react-router";
-import { Typography, useMediaQuery, useTheme, Box, Container } from "@mui/material";
+import {
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Box,
+  Container,
+  Grid,
+} from "@mui/material";
 import { useState } from "react";
 import { ProjectImages } from "../../assets/content/types";
 
@@ -18,12 +25,11 @@ const Project = () => {
 
   return (
     <Box
-      display="flex"
-      alignItems="center"
+      display='flex'
+      alignItems='center'
+      justifyContent='start'
       style={{
-        justifyContent: "center",
-
-        height: "100vh"
+        height: "100vh",
       }}
     >
       {projects[Number(id)].projectImages[slide].type ===
@@ -40,9 +46,19 @@ const Project = () => {
           onClick={handleClick}
         />
       ) : (
-        <Container maxWidth={"sm"} >
-          <Typography>{projects[Number(id)].projectImages[slide].text}</Typography>
-        </Container>
+        <Box
+          style={{
+            textAlign: "left",
+            WebkitColumns: "250px 3",
+            MozColumns: "250px 3",
+            columns: "250px 3",
+            margin: "20px"
+          }}
+        >
+          <Typography>
+            {projects[Number(id)].projectImages[slide].text}
+          </Typography>
+        </Box>
       )}
     </Box>
   );

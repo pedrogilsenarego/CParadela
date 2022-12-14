@@ -25,10 +25,10 @@ const ProjectLayout = (props: any) => {
           position: "absolute",
           right: "20px",
           top: "20px",
-          height: "40px",
-          width: "40px",
+          height: "30px",
+          width: "30px",
           borderRadius: "50px",
-          backgroundColor: closeHover ? "darkBlue" : "white",
+          backgroundColor: closeHover ? "darkBlue" : "black",
           //cursor: "pointer"
         }}
       />
