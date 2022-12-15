@@ -1,7 +1,6 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, useTheme, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { ROUTE_PATHS } from "../constants/routes";
-import Cursor from "../presentational/Cursor";
 import { useNavigate } from "react-router";
 
 
@@ -9,13 +8,13 @@ import { useNavigate } from "react-router";
 const ProjectLayout = (props: any) => {
   const navigate = useNavigate()
   const [closeHover, setCloseHover] = useState(false)
-
+  const Theme = useTheme();
+  const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
 
 
 
   return (
     <>
-
 
       <Box
         onMouseEnter={() => setCloseHover(true)}
@@ -28,8 +27,8 @@ const ProjectLayout = (props: any) => {
           height: "30px",
           width: "30px",
           borderRadius: "50px",
+          marginRight: mobile ? "20px" : "80px",
           backgroundColor: closeHover ? "darkBlue" : "black",
-          //cursor: "pointer"
         }}
       />
 
