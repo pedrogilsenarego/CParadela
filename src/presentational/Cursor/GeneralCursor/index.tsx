@@ -51,6 +51,7 @@ const GeneralCursor = () => {
         borderRadius: "50px",
         backgroundColor: "blue",
         color: "red",
+
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
       }}
     />

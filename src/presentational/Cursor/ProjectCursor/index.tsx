@@ -1,7 +1,9 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Limits } from "./constants";
 
 const ProjectCursor = () => {
+
 
 
   const [mousePosition, setMousePosition] = useState({
@@ -50,31 +52,37 @@ const ProjectCursor = () => {
     return () => window.removeEventListener("mousemove", mouseMove);
   }, []);
 
-  const triangleLeft = () => (
-    <Box
-      style={{
-        width: 0,
-        height: 0,
-        borderTop: "10px solid transparent",
-        borderRight: "20px solid red",
-        borderBottom: "10px solid transparent"
-      }}
-    />
-  );
+  // const triangleLeft = () => (
+  //   <Box
+  //     style={{
+  //       width: 0,
+  //       height: 0,
+  //       borderTop: "10px solid transparent",
+  //       borderRight: "20px solid red",
+  //       borderBottom: "10px solid transparent",
+  //     }}
+  //   />
+  // );
 
-  const triangleRight = () => (
-    <Box
-      style={{
-        width: 0,
-        height: 0,
-        borderTop: "10px solid transparent",
-        borderLeft: "20px solid red",
-        borderBottom: "10px solid transparent"
-      }}
-    />
-  );
+  // const triangleRight = () => (
+  //   <Box
+  //     style={{
+  //       width: 0,
+  //       height: 0,
+  //       borderTop: "10px solid transparent",
+  //       borderLeft: "20px solid red",
+  //       borderBottom: "10px solid transparent",
+  //     }}
+  //   />
+  // );
 
-
+  const borderCondition =
+    (positionPercentageX > Limits.LIMIT_MOUSE_TOP &&
+      positionPercentageY < Limits.LIMIT_MOUSE_RIGHT &&
+      positionPercentageY > Limits.LIMIT_MOUSE_LEFT) ||
+    (positionPercentageX < Limits.LIMIT_MOUSE_BOTTOM &&
+      positionPercentageY < Limits.LIMIT_MOUSE_RIGHT &&
+      positionPercentageY > Limits.LIMIT_MOUSE_LEFT);
 
   return (
     <Box
@@ -86,40 +94,24 @@ const ProjectCursor = () => {
         left: 0,
         top: 0,
         zIndex: 1000,
-        height:
-          (positionPercentageX > 85 &&
-            positionPercentageY < 70 &&
-            positionPercentageY > 30) ||
-            (positionPercentageX < 15 &&
-              positionPercentageY < 70 &&
-              positionPercentageY > 30)
-            ? "40px"
-            : "20px",
-        width:
-          (positionPercentageX > 85 &&
-            positionPercentageY < 70 &&
-            positionPercentageY > 30) ||
-            (positionPercentageX < 15 &&
-              positionPercentageY < 70 &&
-              positionPercentageY > 30)
-            ? "40px"
-            : "20px",
+        border: borderCondition ? "solid 7px yellow" : "solid 0px blue",
+        height: borderCondition ? "40px" : "20px",
+        width: borderCondition ? "40px" : "20px",
         borderRadius: "50px",
-        backgroundColor: "#E3EE31CC",
+        backgroundColor: borderCondition ? "transparent" : "#E3EE31CC",
         color: "red",
+        transition: "scale 2s ease-in-out",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
       }}
     >
-
-      {positionPercentageX > 85 &&
+      {/* {positionPercentageX > 85 &&
         positionPercentageY < 70 &&
         positionPercentageY > 30 &&
         (triangleRight())}
       {positionPercentageX < 15 &&
         positionPercentageY < 70 &&
         positionPercentageY > 30 &&
-        (triangleLeft())}
-
+        (triangleLeft())} */}
     </Box>
   );
 };
