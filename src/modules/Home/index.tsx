@@ -57,17 +57,13 @@ const Home = () => {
                   )
                 }
               >
-                {/* <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                > */}
+
                 <CardMedia
                   image={item.projectImages[0].image}
                   title={item.title}
                   key={pos}
                 />
-                {/* </motion.div> */}
+
               </Grid>
             );
           })}

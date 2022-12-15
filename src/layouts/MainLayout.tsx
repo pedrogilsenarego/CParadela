@@ -1,8 +1,12 @@
 import Header from "../presentational/Menu";
 import { Grid } from "@mui/material";
-import Cursor from "../presentational/Cursor";
+
+
+
 
 const HomepageLayout = (props: any) => {
+
+
   return (
     <>
 

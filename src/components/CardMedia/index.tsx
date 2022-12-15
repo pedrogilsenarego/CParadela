@@ -56,8 +56,16 @@ const CardMedia = ({
         image={image}
         alt={alt || ""}
         onClick={handleClick}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseEnter={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setHover(true)
+        }}
+        onMouseLeave={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setHover(false)
+        }}
 
       />
       {title && (
@@ -67,7 +75,7 @@ const CardMedia = ({
             bottom: "-30px",
             left: "5px",
             opacity: hover ? 1 : 0,
-            // transition: "all 0.8s ease-in",
+            transition: "all 0.8s ease-in",
             zIndex: -1000,
             fontSize: "20px"
           }}

@@ -6,6 +6,7 @@ import {
   StyledEngineProvider,
   CssBaseline,
 } from "@mui/material";
+import Cursor from "./presentational/Cursor";
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
     <BrowserRouter>
       <StyledEngineProvider injectFirst>
         <CssBaseline />
+
+        <Cursor />
         <ScrollToTop />
         <AppRoutes />
       </StyledEngineProvider>
