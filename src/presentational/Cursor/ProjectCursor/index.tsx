@@ -77,12 +77,12 @@ const ProjectCursor = () => {
   // );
 
   const borderCondition =
-    (positionPercentageX > Limits.LIMIT_MOUSE_TOP &&
-      positionPercentageY < Limits.LIMIT_MOUSE_RIGHT &&
-      positionPercentageY > Limits.LIMIT_MOUSE_LEFT) ||
-    (positionPercentageX < Limits.LIMIT_MOUSE_BOTTOM &&
-      positionPercentageY < Limits.LIMIT_MOUSE_RIGHT &&
-      positionPercentageY > Limits.LIMIT_MOUSE_LEFT);
+    (positionPercentageX < Limits.LIMIT_MOUSE_LEFT &&
+      positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
+      positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM) ||
+    (positionPercentageX > Limits.LIMIT_MOUSE_RIGHT &&
+      positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
+      positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM);
 
   return (
     <Box

@@ -26,6 +26,7 @@ const ProjectLayout = (props: any) => {
           top: "20px",
           height: "30px",
           width: "30px",
+          zIndex: 700,
           borderRadius: "50px",
           marginRight: mobile ? "20px" : "80px",
           backgroundColor: closeHover ? "darkBlue" : "black",
