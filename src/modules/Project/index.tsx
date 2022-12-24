@@ -26,6 +26,32 @@ const Project = () => {
     else return;
   };
 
+  type Styles = React.CSSProperties & {
+    '@media (max-height: 300px)': React.CSSProperties;
+    '@media (max-height: 600px)': React.CSSProperties;
+
+  };
+
+  const styles: Styles = {
+    columnCount: 1,
+    maxHeight: "300px",
+    columnGap: "40px",
+    textAlign: "left",
+    maxWidth: "25vw",
+    margin: "5vw",
+    '@media (max-height: 300px)': {
+      columnCount: 2,
+    },
+    '@media (max-height: 600px)': {
+      columnCount: 3,
+    },
+
+  };
+
+
+
+
+
   return (
     <Box
       display='flex'
@@ -82,7 +108,7 @@ const Project = () => {
         <img
           style={{
             height: mobile ? "auto" : "100vh",
-            minWidth: "100%",
+            maxWidth: "100%",
             objectFit: "cover",
           }}
           src={projects[Number(id)].projectImages[slide].image}
@@ -91,13 +117,7 @@ const Project = () => {
         />
       ) : (
         <Box
-          style={{
-            textAlign: "left",
-            WebkitColumns: "250px 3",
-            MozColumns: "250px 3",
-            columns: "250px 3",
-            margin: "20px",
-          }}
+          style={styles}
         >
           <Typography>
             {projects[Number(id)].projectImages[slide].text}

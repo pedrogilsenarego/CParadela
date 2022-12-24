@@ -10,12 +10,14 @@ const ProjectLayout = (props: any) => {
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <>
       <Box
+
         onMouseEnter={() => setCloseHover(true)}
         onMouseLeave={() => setCloseHover(false)}
         onClick={() => navigate(ROUTE_PATHS.HOME)}
         style={{
+          overflow: 'hidden',
           position: "absolute",
           right: "20px",
           top: "20px",
@@ -29,7 +31,7 @@ const ProjectLayout = (props: any) => {
       />
 
       <Box>{props.children}</Box>
-    </div>
+    </>
   );
 };
 
