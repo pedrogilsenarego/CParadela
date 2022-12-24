@@ -1,21 +1,16 @@
-import { Grid, Box, useTheme, useMediaQuery } from "@mui/material";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { ROUTE_PATHS } from "../constants/routes";
 import { useNavigate } from "react-router";
 
-
-
 const ProjectLayout = (props: any) => {
-  const navigate = useNavigate()
-  const [closeHover, setCloseHover] = useState(false)
+  const navigate = useNavigate();
+  const [closeHover, setCloseHover] = useState(false);
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
 
-
-
   return (
-    <>
-
+    <div style={{ overflow: 'hidden' }}>
       <Box
         onMouseEnter={() => setCloseHover(true)}
         onMouseLeave={() => setCloseHover(false)}
@@ -33,24 +28,8 @@ const ProjectLayout = (props: any) => {
         }}
       />
 
-      <Grid
-        container
-        direction='column'
-        justifyContent='space-between'
-        style={{ minHeight: "100vh" }}
-      >
-        <Grid
-          item
-          xs={12}
-          style={{
-            minHeight: "60vh",
-            textAlign: "center",
-          }}
-        >
-          {props.children}
-        </Grid>
-      </Grid>
-    </>
+      <Box>{props.children}</Box>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import { i18n } from "../../../translations/i18n";
-import InstaAvatar from "../../../components/InstaAvatar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   projectFiltering,

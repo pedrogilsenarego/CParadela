@@ -1,22 +1,20 @@
-import { projects } from "../../assets/content/projects";
-import { useParams, useNavigate } from "react-router";
-import { Typography, useMediaQuery, useTheme, Box } from "@mui/material";
+import { references } from "../../assets/content/projects";
+import { useNavigate } from "react-router";
+import { useMediaQuery, useTheme, Box } from "@mui/material";
 import { useState } from "react";
-import { ProjectImages } from "../../assets/content/types";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
 
 
 
-const Project = () => {
-  const { id } = useParams();
+const References = () => {
   const Theme = useTheme();
   const navigate = useNavigate()
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
 
   const handleGoRight = () => {
-    if (projects[Number(id)].projectImages.length > slide + 1)
+    if (references.length > slide + 1)
       setSlide(slide + 1);
     else return;
   };
@@ -77,35 +75,18 @@ const Project = () => {
           }}
         />
       </Box>
-      {projects[Number(id)].projectImages[slide].type ===
-        ProjectImages.IMAGE ? (
-        <img
-          style={{
-            height: mobile ? "auto" : "100vh",
-            minWidth: "100%",
-            objectFit: "cover",
-          }}
-          src={projects[Number(id)].projectImages[slide].image}
-          alt={projects[Number(id)].title}
-          loading='lazy'
-        />
-      ) : (
-        <Box
-          style={{
-            textAlign: "left",
-            WebkitColumns: "250px 3",
-            MozColumns: "250px 3",
-            columns: "250px 3",
-            margin: "20px",
-          }}
-        >
-          <Typography>
-            {projects[Number(id)].projectImages[slide].text}
-          </Typography>
-        </Box>
-      )}
+      <img
+        style={{
+          height: mobile ? "auto" : "100vh",
+          minWidth: "100%",
+          objectFit: "cover",
+        }}
+        src={references[slide].projectImages[0].image}
+        alt={references[slide].title}
+        loading='lazy'
+      />
     </Box>
   );
 };
 
-export default Project;
+export default References;

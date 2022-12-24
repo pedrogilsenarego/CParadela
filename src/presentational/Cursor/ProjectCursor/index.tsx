@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 import { Limits } from "./constants";
 
 const ProjectCursor = () => {
-
-
-
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -52,6 +49,8 @@ const ProjectCursor = () => {
     return () => window.removeEventListener("mousemove", mouseMove);
   }, []);
 
+
+
   // const triangleLeft = () => (
   //   <Box
   //     style={{
@@ -84,6 +83,9 @@ const ProjectCursor = () => {
       positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
       positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM);
 
+  const topCondition =
+    positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM
+
   return (
     <Box
       display='flex'
@@ -95,9 +97,9 @@ const ProjectCursor = () => {
         top: 0,
         zIndex: 1000,
         border: borderCondition ? "solid 7px yellow" : "solid 0px blue",
-        height: borderCondition ? "40px" : "20px",
-        width: borderCondition ? "40px" : "20px",
-        borderRadius: "50px",
+        height: borderCondition || topCondition ? "40px" : "20px",
+        width: borderCondition || topCondition ? "40px" : "20px",
+        borderRadius: topCondition ? "0px" : "50px",
         backgroundColor: borderCondition ? "transparent" : "#E3EE31CC",
         color: "red",
         transition: "scale 2s ease-in-out",

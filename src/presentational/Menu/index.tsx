@@ -4,7 +4,7 @@ import {
   Container,
   useTheme,
   useMediaQuery,
-  Typography,
+
 } from "@mui/material";
 import Left from "./Left";
 import Right from "./Right";

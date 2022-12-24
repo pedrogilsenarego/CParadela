@@ -28,6 +28,19 @@ const Home = () => {
     })
     : shuffledArray;
 
+  const handleClick = (type: string, id: number) => {
+    if (type === "project") {
+      navigate(
+        ROUTE_PATHS.PROJECT.replace(":id", id.toString())
+      )
+    }
+    else {
+      navigate(
+        ROUTE_PATHS.REFERENCES
+      )
+    }
+  }
+
   return (
     <>
       <div
@@ -51,12 +64,7 @@ const Home = () => {
                 xs={6}
                 md={4}
                 xl={extraLarge ? 2.4 : 3}
-                onClick={() =>
-                  navigate(
-                    ROUTE_PATHS.PROJECT.replace(":id", item.id.toString())
-                  )
-                }
-              >
+                onClick={() => handleClick(item.type, item.id)}>
 
                 <CardMedia
                   image={item.projectImages[0].image}
