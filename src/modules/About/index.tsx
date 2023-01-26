@@ -21,9 +21,15 @@ const About = () => {
 
         }}
       >
+        <Box textAlign='left'>
+          <Typography>{i18n.t("modules.about.email")}</Typography>
+          <Typography style={{ whiteSpace: "pre-line" }}>
+            {i18n.t("modules.about.address")}
+          </Typography>
+        </Box>
         <Typography
           align='justify'
-          style={{ whiteSpace: "pre-line", width: "40%" }}
+          style={{ whiteSpace: "pre-line", width: "40%", marginTop: "40px" }}
         >
           {i18n.t("modules.about.mainText")}
         </Typography>
@@ -57,12 +63,7 @@ const About = () => {
             </Typography>
           );
         })}
-        <Box textAlign='right' style={{ position: "absolute", right: "80px", bottom: "0px" }}>
-          <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Typography style={{ whiteSpace: "pre-line", marginTop: "20px" }}>
-            {i18n.t("modules.about.address")}
-          </Typography>
-        </Box>
+
       </div>
     );
   };
@@ -70,7 +71,13 @@ const About = () => {
   const renderMobile = () => {
     return (
       <Container>
-        <Typography align='justify'>
+        <Box textAlign='left' >
+          <Typography>{i18n.t("modules.about.email")}</Typography>
+          <Typography style={{ whiteSpace: "pre-line", marginTop: "10px" }}>
+            {i18n.t("modules.about.address")}
+          </Typography>
+        </Box>
+        <Typography align='justify' style={{ marginTop: "40px" }}>
           {i18n.t("modules.about.mainText")}
         </Typography>
         <Typography
@@ -103,12 +110,7 @@ const About = () => {
             </Typography>
           );
         })}
-        <Box textAlign='left' style={{ marginTop: "40px" }}>
-          <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Typography style={{ whiteSpace: "pre-line", marginTop: "10px" }}>
-            {i18n.t("modules.about.address")}
-          </Typography>
-        </Box>
+
       </Container>
     );
   };

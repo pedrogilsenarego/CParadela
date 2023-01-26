@@ -37,7 +37,7 @@ export const content = {
             "Sofia Paradela was born in 1989 in Lisbon, Portugal. She studied Product Design at Faculdade de Belas-Artes, in Lisbon, and Nuova Accademia di Belle Arti, in Milan. Later, she studied architecture, in Faculdade de Arquitectura da Universidade Técnica de Lisboa and Accademia di Architettura di Mendrisio. Here, she learned from Professor Valerio Olgiati and graduated in 2016 under Professors Francisco and Manuel Aires Mateus. Sofia worked as an intern at Aires Mateus e Associados in Lisbon and as an architect at Capaul&Blumenthal in Ilanz and at Atelier Peter Zumthor in Haldenstein. From 2020 she has been a lecturer at Accademia di Architettura di Mendrisio, leading her own first year Bachelor´s design studio, under the Chair of professor Valerio Olgiati.",
           third:
             "They are currently based in Lisbon where they founded their architecture practice in 2019.",
-          works: "Trabalhos",
+          works: "Projectos",
           email: "info@condeparadela.com",
           address: "praça joão do rio 8, rc dto.\n 1000-180 lisboa\n Portugal",
         },

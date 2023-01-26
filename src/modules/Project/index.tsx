@@ -26,30 +26,6 @@ const Project = () => {
     else return;
   };
 
-  type Styles = React.CSSProperties & {
-    '@media (max-height: 300px)': React.CSSProperties;
-    '@media (max-height: 600px)': React.CSSProperties;
-
-  };
-
-  const styles: Styles = {
-    columnCount: 1,
-    maxHeight: "300px",
-    columnGap: "40px",
-    textAlign: "left",
-    maxWidth: "25vw",
-    margin: "5vw",
-    '@media (max-height: 300px)': {
-      columnCount: 2,
-    },
-    '@media (max-height: 600px)': {
-      columnCount: 3,
-    },
-
-  };
-
-
-
 
 
   return (
@@ -117,7 +93,14 @@ const Project = () => {
         />
       ) : (
         <Box
-          style={styles}
+          style={{
+            columnCount: 1,
+            maxHeight: "400px",
+            columnGap: "40px",
+            textAlign: "left",
+            maxWidth: "25vw",
+            margin: "5vw",
+          }}
         >
           <Typography>
             {projects[Number(id)].projectImages[slide].text}

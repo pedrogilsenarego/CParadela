@@ -6,6 +6,7 @@ export const projects = [
     id: 0,
     type: "project",
     title: "project0",
+    url: "",
     projectImages: [
       {
         type: ProjectImages.IMAGE,

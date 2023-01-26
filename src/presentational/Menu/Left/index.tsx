@@ -9,7 +9,7 @@ const Left = () => {
   const location = useLocation()
   return (
     <Typography
-      style={{ fontSize: "24px", letterSpacing: "4px", fontWeight: 500, cursor: "pointer" }}
+      style={{ fontSize: "24px", letterSpacing: "10px", fontWeight: 500, cursor: "pointer" }}
       onClick={() => navigate(location.pathname === ROUTE_PATHS.HOME ? ROUTE_PATHS.ABOUT : ROUTE_PATHS.HOME)}
     >
       {i18n.t("menuBar.brand")}
