@@ -19,15 +19,21 @@ const About = () => {
         style={{
           position: "relative",
           marginLeft: "80px",
-
         }}
       >
         <Box textAlign='left'>
           <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Typography style={{ whiteSpace: "pre-line" }}>
-            {i18n.t("modules.about.address")}
-          </Typography>
-          <Box mt="10px">
+          <Box onClick={() =>
+            window.location.replace(
+              `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
+            )
+          }>
+            <Typography
+              style={{ whiteSpace: "pre-line" }}>
+              {i18n.t("modules.about.address")}
+            </Typography>
+          </Box>
+          <Box mt='10px'>
             <SocialIcons />
           </Box>
         </Box>
@@ -67,7 +73,6 @@ const About = () => {
             </Typography>
           );
         })}
-
       </div>
     );
   };
@@ -75,12 +80,21 @@ const About = () => {
   const renderMobile = () => {
     return (
       <Container>
-        <Box textAlign='left' >
+        <Box textAlign='left'>
           <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Typography style={{ whiteSpace: "pre-line", marginTop: "10px" }}>
-            {i18n.t("modules.about.address")}
-          </Typography>
-          <Box mt="10px">
+          <Box onClick={() =>
+            window.location.replace(
+              `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
+            )
+          }>
+            <Typography
+
+              style={{ whiteSpace: "pre-line", marginTop: "10px" }}
+            >
+              {i18n.t("modules.about.address")}
+            </Typography>
+          </Box>
+          <Box mt='10px'>
             <SocialIcons />
           </Box>
         </Box>
@@ -117,7 +131,6 @@ const About = () => {
             </Typography>
           );
         })}
-
       </Container>
     );
   };
