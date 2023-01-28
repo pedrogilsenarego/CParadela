@@ -54,7 +54,7 @@ const References = () => {
         onClick={backHome}
         style={{
           position: "absolute",
-          left: `${Limits.LIMIT_MOUSE_LEFT}%`,
+          left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
           top: 0,
           width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
           height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,

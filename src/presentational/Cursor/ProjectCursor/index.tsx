@@ -84,7 +84,7 @@ const ProjectCursor = () => {
       positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM);
 
   const topCondition =
-    positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM
+    positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM && positionPercentageX > Limits.LIMIT_MOUSE_RIGHT
 
   return (
     <Box
