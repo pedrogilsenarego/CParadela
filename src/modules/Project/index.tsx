@@ -1,10 +1,11 @@
 import { projects } from "../../assets/content/projects";
 import { useParams, useNavigate } from "react-router";
 import { Typography, useMediaQuery, useTheme, Box } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProjectImages } from "../../assets/content/types";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
+import { useKeyPress } from "../../hooks/useKeyPress";
 
 const Project = () => {
   const { id } = useParams();
@@ -12,6 +13,22 @@ const Project = () => {
   const navigate = useNavigate();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
+
+  const leftButton = useKeyPress("ArrowLeft");
+  const rightButton = useKeyPress("ArrowRight");
+  const escButton = useKeyPress("Esc");
+
+  useEffect(() => {
+    if (leftButton) handleGoLeft()
+    if (rightButton) handleGoRight()
+    if (escButton) backHome()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [leftButton, rightButton, escButton])
+
+  const backHome = () => {
+    navigate(ROUTE_PATHS.HOME)
+  }
 
   const handleGoRight = () => {
     if (projects[Number(id)].projectImages.length > slide + 1)
@@ -27,7 +44,7 @@ const Project = () => {
   return (
     <>
       <Box
-        onClick={() => navigate(ROUTE_PATHS.HOME)}
+        onClick={backHome}
         style={{
           position: "absolute",
           left: `${Limits.LIMIT_MOUSE_LEFT}%`,
