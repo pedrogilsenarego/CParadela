@@ -6,5 +6,4 @@ icons de redes sociais
 constants - cor cursor nos assets, backgroundColor
 Lang no header
 texto projectos - ate uma certa altura enche numa barra, no limite vai dividindo o texto por colunas, sempre o mesmo tamanho de letra, maior espaco entre letras
-landing page - CONDE PARADELA - arquitects
 texto projectos so uma coluna, dragging para passar para o lado (carrossel)

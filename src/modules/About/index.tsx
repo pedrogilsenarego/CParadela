@@ -7,6 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { listWorks } from "./constants";
+import SocialIcons from "./components/SocialIcons";
 
 const About = () => {
   const Theme = useTheme();
@@ -26,6 +27,9 @@ const About = () => {
           <Typography style={{ whiteSpace: "pre-line" }}>
             {i18n.t("modules.about.address")}
           </Typography>
+          <Box mt="10px">
+            <SocialIcons />
+          </Box>
         </Box>
         <Typography
           align='justify'
@@ -76,6 +80,9 @@ const About = () => {
           <Typography style={{ whiteSpace: "pre-line", marginTop: "10px" }}>
             {i18n.t("modules.about.address")}
           </Typography>
+          <Box mt="10px">
+            <SocialIcons />
+          </Box>
         </Box>
         <Typography align='justify' style={{ marginTop: "40px" }}>
           {i18n.t("modules.about.mainText")}

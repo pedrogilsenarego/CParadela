@@ -5,6 +5,8 @@ import { lazyWithRetryAndLoader } from "../utils/lazyWithRetry";
 import MainLayout from "../layouts/MainLayout";
 import ProjectLayout from "../layouts/ProjectLayout";
 
+
+const LandingPage = lazyWithRetryAndLoader(() => import("../modules/LandingPage"))
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
 const About = lazyWithRetryAndLoader(() => import("../modules/About"));
 const Project = lazyWithRetryAndLoader(() => import("../modules/Project"))
@@ -12,6 +14,12 @@ const References = lazyWithRetryAndLoader(() => import("../modules/References"))
 
 
 export const routes: AppRoute[] = [
+  {
+    path: ROUTE_PATHS.LANDING_PAGE,
+    component: (
+      <LandingPage />
+    )
+  },
   {
     path: ROUTE_PATHS.HOME,
     component: (

@@ -6,17 +6,16 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 const Cursor = () => {
   const location = useLocation();
-  const theme = useTheme()
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"))
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  return (
-    mobile ? null :
-      ((location.pathname !== ROUTE_PATHS.HOME &&
-        location.pathname !== ROUTE_PATHS.ABOUT) ? (
-        <ProjectCursor />
-      ) : (
-        <GeneralCursor />
-      )))
+  return mobile ? null : location.pathname !== ROUTE_PATHS.HOME &&
+    location.pathname !== ROUTE_PATHS.ABOUT &&
+    location.pathname !== ROUTE_PATHS.LANDING_PAGE ? (
+    <ProjectCursor />
+  ) : (
+    <GeneralCursor />
+  );
 };
 
 export default Cursor;

@@ -52,9 +52,9 @@ const GeneralCursor = () => {
         top: 0,
         zIndex: 1000,
         height:
-          "30px",
+          "25px",
         width:
-          "30px",
+          "25px",
         borderRadius: "50px",
         backgroundColor: "blue",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y + mouseScroll}px, 0)`,
