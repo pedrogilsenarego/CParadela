@@ -1,13 +1,11 @@
 escape para sair de projectos e referencias, arrow left e right
-verificar imagens projects
 retirar scroll bars nos projectos/ref
 referencias - entra na imagem selecionada e depois as outras sao random
 about - links para as referencias
 about -  morada canto superior direito, link para google maps
 close projects, quadrante superior direito
-tirar bola para fechar
 gotham light fonte
-constants - cor cursor nos assets
+constants - cor cursor nos assets, backgroundColor
 Lang no header
 texto projectos - ate uma certa altura enche numa barra, no limite vai dividindo o texto por colunas, sempre o mesmo tamanho de letra, maior espaco entre letras
 landing page - CONDE PARADELA - arquitects

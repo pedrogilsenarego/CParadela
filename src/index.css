@@ -11,7 +11,10 @@ body {
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: rgb(14, 13, 13);
- 
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  overflow-x: hidden;
+  
 }
 
 code {

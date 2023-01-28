@@ -88,9 +88,7 @@ const ProjectCursor = () => {
 
   return (
     <Box
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
+
       style={{
         position: "absolute",
         left: 0,

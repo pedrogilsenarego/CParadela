@@ -6,12 +6,10 @@ import { ProjectImages } from "../../assets/content/types";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
 
-
-
 const Project = () => {
   const { id } = useParams();
   const Theme = useTheme();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
 
@@ -26,17 +24,8 @@ const Project = () => {
     else return;
   };
 
-
-
   return (
-    <Box
-      display='flex'
-      alignItems='center'
-      justifyContent='start'
-      style={{
-        height: "100vh",
-      }}
-    >
+    <>
       <Box
         onClick={() => navigate(ROUTE_PATHS.HOME)}
         style={{
@@ -45,8 +34,7 @@ const Project = () => {
           top: 0,
           width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
           height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
-          zIndex: 5000
-
+          zIndex: 5000,
         }}
       ></Box>
       <Box
@@ -84,8 +72,9 @@ const Project = () => {
         <img
           style={{
             height: mobile ? "auto" : "100vh",
-            maxWidth: "100%",
+            width: "100%",
             objectFit: "cover",
+
           }}
           src={projects[Number(id)].projectImages[slide].image}
           alt={projects[Number(id)].title}
@@ -107,7 +96,7 @@ const Project = () => {
           </Typography>
         </Box>
       )}
-    </Box>
+    </>
   );
 };
 
