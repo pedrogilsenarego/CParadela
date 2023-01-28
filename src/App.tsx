@@ -5,20 +5,34 @@ import ScrollToTop from "./utils/ScrollToTop";
 import {
   StyledEngineProvider,
   CssBaseline,
+  ThemeProvider, createTheme
 } from "@mui/material";
 import Cursor from "./presentational/Cursor";
+
+const theme = createTheme({
+  typography: {
+    allVariants: {
+      fontFamily: 'Gotham',
+      textTransform: 'none',
+      fontSize: 16,
+      caretColor: "transparent"
+    },
+  },
+});
 
 
 function App() {
   return (
     <BrowserRouter>
-      <StyledEngineProvider injectFirst>
-        <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <StyledEngineProvider injectFirst>
+          <CssBaseline />
 
-        <Cursor />
-        <ScrollToTop />
-        <AppRoutes />
-      </StyledEngineProvider>
+          <Cursor />
+          <ScrollToTop />
+          <AppRoutes />
+        </StyledEngineProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

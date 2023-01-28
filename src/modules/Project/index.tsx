@@ -16,7 +16,7 @@ const Project = () => {
 
   const leftButton = useKeyPress("ArrowLeft");
   const rightButton = useKeyPress("ArrowRight");
-  const escButton = useKeyPress("Esc");
+  const escButton = useKeyPress("Escape");
 
   useEffect(() => {
     if (leftButton) handleGoLeft()

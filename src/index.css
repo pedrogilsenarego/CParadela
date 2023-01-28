@@ -1,10 +1,18 @@
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham"),
+   url("./assets/fonts/Gotham-Book.otf") format("opentype");
+  font-weight: normal;
+  }
+  
+
 body *, body button {
   cursor: none !important;
 }
 
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Gotham' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f6f7f8;
@@ -17,6 +25,4 @@ body {
   
 }
 
-code {
-  font-family: 'Raleway', sans-serif;
-}
+
