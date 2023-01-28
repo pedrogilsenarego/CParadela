@@ -42,7 +42,13 @@ const Project = () => {
   };
 
   return (
-    <>
+    <Box
+      display='flex'
+      alignItems='center'
+      justifyContent='start'
+      style={{
+        height: "100vh",
+      }}>
       <Box
         onClick={backHome}
         style={{
@@ -113,7 +119,7 @@ const Project = () => {
           </Typography>
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 
