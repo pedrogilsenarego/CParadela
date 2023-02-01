@@ -4,25 +4,38 @@ import {
   Container,
   useTheme,
   useMediaQuery,
-
+  Typography,
 } from "@mui/material";
 import Left from "./Left";
 import Right from "./Right";
-
-import { useSelector } from "react-redux";
+import { updateLang } from "../../slicer/general/general.actions";
+import { useSelector, useDispatch } from "react-redux";
 import { State } from "../../slicer/types";
 import { useLocation } from "react-router";
 import { ROUTE_PATHS } from "../../constants/routes";
+import { i18n } from "../../translations/i18n";
 
 const Menu = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
-
+  const dispatch = useDispatch()
   const location = useLocation();
 
   const lang = useSelector<State, string>(
     (state) => state.general.lang || "PT"
   );
+
+  const handleChangeLang = () => {
+    changeLanguage(lang === "PT" ? "EN" : "PT")
+  }
+
+  const changeLanguage = (lng: string) => {
+    dispatch(updateLang(lng.toUpperCase()));
+    i18n.changeLanguage(lng);
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
+  };
 
   const laptopRender = () => {
     return (
@@ -44,7 +57,12 @@ const Menu = () => {
           </Grid>
           {location.pathname === ROUTE_PATHS.HOME && (
             <Grid item>
-              <Right />
+              <Box display="flex" columnGap={2} alignItems="center">
+                <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
+                  <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
+                </Box>
+                <Right />
+              </Box>
             </Grid>
           )}
         </Grid>
@@ -63,16 +81,23 @@ const Menu = () => {
             alignItems='center'
             style={{ height: "80px" }}
           >
-            <Grid item xs={11}>
+            <Grid item xs={location.pathname === ROUTE_PATHS.HOME ? 8 : 12}>
               <Left />
             </Grid>
-            <Grid item xs={1} textAlign='right'>
-              {location.pathname === ROUTE_PATHS.HOME && (
-                <Grid item>
+            {location.pathname === ROUTE_PATHS.HOME && (
+              <Grid item xs={4} textAlign='right' >
+
+
+                <Box display="flex" justifyContent="end" alignItems="center" >
+                  <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
+                    <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
+                  </Box>
                   <Right />
-                </Grid>
-              )}
-            </Grid>
+                </Box>
+
+
+              </Grid>
+            )}
           </Grid>
         </Container>
       </Box>
