@@ -1,22 +1,36 @@
 import { references } from "../../assets/content/projects";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useMediaQuery, useTheme, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { useKeyPress } from "../../hooks/useKeyPress";
+import { shuffleArray } from "../../utils/shuffleArray";
 
 
 
 const References = () => {
+  const { id } = useParams();
   const Theme = useTheme();
   const navigate = useNavigate()
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
+  const [referencesArrangement, setReferencesArrangement] = useState<any>([])
 
   const leftButton = useKeyPress("ArrowLeft");
   const rightButton = useKeyPress("ArrowRight");
   const escButton = useKeyPress("Escape");
+
+  useEffect(() => {
+    const newReferences = [...references]
+    newReferences.splice(Number(id), 1)
+    const newShuffle = shuffleArray([...newReferences])
+    newShuffle.unshift(references[Number(id)])
+    setReferencesArrangement(newShuffle)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+
 
   useEffect(() => {
     if (leftButton) handleGoLeft()
@@ -31,7 +45,7 @@ const References = () => {
   }
 
   const handleGoRight = () => {
-    if (references.length > slide + 1)
+    if (referencesArrangement.length > slide + 1)
       setSlide(slide + 1);
     else return;
   };
@@ -98,8 +112,8 @@ const References = () => {
           minWidth: "100%",
           objectFit: "cover",
         }}
-        src={references[slide].projectImages[0].image}
-        alt={references[slide].title}
+        src={referencesArrangement[slide]?.projectImages[0]?.image}
+        alt={referencesArrangement[slide]?.title}
         loading='lazy'
       />
     </Box>

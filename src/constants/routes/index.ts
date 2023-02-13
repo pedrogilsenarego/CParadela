@@ -3,5 +3,5 @@ export const ROUTE_PATHS =  {
   HOME: '/home',
   ABOUT: '/about',
   PROJECT: '/project/:id',
-  REFERENCES: "/references"
+  REFERENCES: "/references/:id"
 }

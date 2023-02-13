@@ -36,7 +36,7 @@ const Home = () => {
     }
     else {
       navigate(
-        ROUTE_PATHS.REFERENCES
+        ROUTE_PATHS.REFERENCES.replace(":id", id.toString())
       )
     }
   }

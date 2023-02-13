@@ -130,4 +130,18 @@ export const references = [
     ],
     mainText: i18n.t("projects.projectBlueM"),
   },
+  {
+    id: 3,
+    type: "reference",
+    title: "reference3",
+    projectImages: [
+      {
+        type: ProjectImages.IMAGE,
+        image:
+          "https://i.pinimg.com/originals/5b/d8/30/5bd830f774fc4e9ffec26200d74b4b2e.jpg",
+      },
+      
+    ],
+    mainText: i18n.t("projects.projectBlueM"),
+  },
 ];
