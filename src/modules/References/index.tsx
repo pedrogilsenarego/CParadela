@@ -72,7 +72,7 @@ const References = () => {
           top: 0,
           width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
           height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
-          zIndex: 5000
+          zIndex: 5001
 
         }}
       ></Box>
@@ -81,7 +81,7 @@ const References = () => {
         justifyContent='space-between'
         alignItems='center'
         style={{
-          zIndex: 500,
+          zIndex: 5000,
           position: "absolute",
 
           width: "100%",

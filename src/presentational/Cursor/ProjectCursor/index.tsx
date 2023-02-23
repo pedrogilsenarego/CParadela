@@ -51,29 +51,6 @@ const ProjectCursor = () => {
 
 
 
-  // const triangleLeft = () => (
-  //   <Box
-  //     style={{
-  //       width: 0,
-  //       height: 0,
-  //       borderTop: "10px solid transparent",
-  //       borderRight: "20px solid red",
-  //       borderBottom: "10px solid transparent",
-  //     }}
-  //   />
-  // );
-
-  // const triangleRight = () => (
-  //   <Box
-  //     style={{
-  //       width: 0,
-  //       height: 0,
-  //       borderTop: "10px solid transparent",
-  //       borderLeft: "20px solid red",
-  //       borderBottom: "10px solid transparent",
-  //     }}
-  //   />
-  // );
 
   const leftCondition = (positionPercentageX < Limits.LIMIT_MOUSE_LEFT &&
     positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
@@ -92,6 +69,7 @@ const ProjectCursor = () => {
     positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM && positionPercentageX > Limits.LIMIT_MOUSE_RIGHT
 
   return (
+
     <Box
 
       style={{
@@ -99,34 +77,18 @@ const ProjectCursor = () => {
         left: 0,
         top: 0,
         zIndex: 1000,
-
         borderTop: borderCondition ? "20px solid transparent" : undefined,
-        borderLeft: rightCondition ? "40px solid #E3EE31CC" : undefined,
-        borderRight: leftCondition ? "40px solid #E3EE31CC" : undefined,
+        borderLeft: rightCondition ? "30px solid #E3EE31CC" : undefined,
+        borderRight: leftCondition ? "30px solid #E3EE31CC" : undefined,
         borderBottom: borderCondition ? "20px solid transparent" : undefined,
         height: borderCondition || topCondition ? "40px" : "15px",
         width: borderCondition || topCondition ? "40px" : "15px",
-        borderRadius: topCondition ? "0px" : "50px",
+        borderRadius: topCondition || borderCondition ? "0px" : "50%",
         backgroundColor: borderCondition ? "transparent" : "#E3EE31CC",
-
         transition: "scale 2s ease-in-out",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
       }}
     >
-
-
-
-
-
-
-      {/* {positionPercentageX > 85 &&
-        positionPercentageY < 70 &&
-        positionPercentageY > 30 &&
-        (triangleRight())}
-      {positionPercentageX < 15 &&
-        positionPercentageY < 70 &&
-        positionPercentageY > 30 &&
-        (triangleLeft())} */}
     </Box>
   );
 };
