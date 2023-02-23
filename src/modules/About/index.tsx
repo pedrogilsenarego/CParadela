@@ -6,12 +6,15 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { listWorks } from "./constants";
 import SocialIcons from "./components/SocialIcons";
+import { references } from "../../assets/content/projects";
+import { ROUTE_PATHS } from "../../constants/routes";
+import { useNavigate } from "react-router";
 
 const About = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
 
   const renderLaptop = () => {
     return (
@@ -66,10 +69,12 @@ const About = () => {
         >
           {i18n.t("modules.about.works")}
         </Typography>
-        {listWorks.map((work, pos) => {
+        {references.map((work, pos) => {
           return (
-            <Typography align='justify' style={{ marginTop: "10px" }} key={pos}>
-              {work}
+            <Typography align='justify' style={{ marginTop: "10px" }} key={pos} onClick={() => navigate(
+              ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+            )}>
+              {work?.title}
             </Typography>
           );
         })}
@@ -124,10 +129,12 @@ const About = () => {
         >
           {i18n.t("modules.about.works")}
         </Typography>
-        {listWorks.map((work, pos) => {
+        {references.map((work, pos) => {
           return (
-            <Typography align='justify' style={{ marginTop: "10px" }} key={pos}>
-              {work}
+            <Typography align='justify' style={{ marginTop: "10px" }} key={pos} onClick={() => navigate(
+              ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+            )}>
+              {work?.title}
             </Typography>
           );
         })}

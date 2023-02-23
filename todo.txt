@@ -1,5 +1,4 @@
 retirar scroll bars nos projectos/ref
-about - links para as referencias
 icons de redes sociais
 constants - cor cursor nos assets, backgroundColor
 texto projectos - ate uma certa altura enche numa barra, no limite vai dividindo o texto por colunas, sempre o mesmo tamanho de letra, maior espaco entre letras

@@ -75,13 +75,18 @@ const ProjectCursor = () => {
   //   />
   // );
 
+  const leftCondition = (positionPercentageX < Limits.LIMIT_MOUSE_LEFT &&
+    positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
+    positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM)
+
+  const rightCondition = (positionPercentageX > Limits.LIMIT_MOUSE_RIGHT &&
+    positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
+    positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM)
+
   const borderCondition =
-    (positionPercentageX < Limits.LIMIT_MOUSE_LEFT &&
-      positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
-      positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM) ||
-    (positionPercentageX > Limits.LIMIT_MOUSE_RIGHT &&
-      positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
-      positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM);
+    leftCondition || rightCondition
+
+
 
   const topCondition =
     positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM && positionPercentageX > Limits.LIMIT_MOUSE_RIGHT
@@ -94,16 +99,26 @@ const ProjectCursor = () => {
         left: 0,
         top: 0,
         zIndex: 1000,
-        border: borderCondition ? "solid 7px yellow" : "solid 0px blue",
+
+        borderTop: borderCondition ? "20px solid transparent" : undefined,
+        borderLeft: rightCondition ? "40px solid #E3EE31CC" : undefined,
+        borderRight: leftCondition ? "40px solid #E3EE31CC" : undefined,
+        borderBottom: borderCondition ? "20px solid transparent" : undefined,
         height: borderCondition || topCondition ? "40px" : "15px",
         width: borderCondition || topCondition ? "40px" : "15px",
         borderRadius: topCondition ? "0px" : "50px",
         backgroundColor: borderCondition ? "transparent" : "#E3EE31CC",
-        color: "red",
+
         transition: "scale 2s ease-in-out",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
       }}
     >
+
+
+
+
+
+
       {/* {positionPercentageX > 85 &&
         positionPercentageY < 70 &&
         positionPercentageY > 30 &&
@@ -117,3 +132,8 @@ const ProjectCursor = () => {
 };
 
 export default ProjectCursor;
+
+
+
+
+
