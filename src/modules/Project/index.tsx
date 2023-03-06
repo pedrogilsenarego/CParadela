@@ -41,88 +41,122 @@ const Project = () => {
     else return;
   };
 
+  const mobileRender = () => {
+    return (
+      <Box display="flex" flexDirection="column" rowGap={2} style={{ margin: "20px" }}>
+        {projects[Number(id)].projectImages.map((item, pos) => {
+          return (
+            item.type ===
+              ProjectImages.IMAGE ? (
+              <Box key={pos}>
+                <img
+
+                  style={{
+                    height: mobile ? "auto" : "100vh",
+                    width: "100%",
+                    objectFit: "cover",
+
+                  }}
+                  src={item.image}
+                  alt={item.image}
+                  loading='lazy'
+                />
+              </Box>) :
+              <Box
+                style={{ textAlign: "justify", }}
+              >
+                <Typography>
+                  {item.text}
+                </Typography>
+              </Box>
+          )
+        })}</Box>
+    )
+  }
+
   return (
-    <Box
-      display='flex'
-      alignItems='center'
-      justifyContent='start'
-      style={{
-        height: "100vh",
-      }}>
-      <Box
-        onClick={backHome}
-        style={{
-
-          position: "absolute",
-          left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
-          top: 0,
-          width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
-          height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
-          zIndex: 5001,
-
-        }}
-      ></Box>
+    mobile ? mobileRender() :
       <Box
         display='flex'
-        justifyContent='space-between'
         alignItems='center'
+        justifyContent='start'
         style={{
-          zIndex: 5000,
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-        }}
-      >
+          height: "100vh",
+        }}>
         <Box
-          onClick={handleGoLeft}
-          alignItems='center'
+          onClick={backHome}
           style={{
-            width: `${Limits.LIMIT_MOUSE_LEFT}%`,
-            height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
-          }}
-        />
-        <Box
-          onClick={handleGoRight}
-          display='flex'
-          alignItems='center'
-          style={{
-            width: `${Limits.LIMIT_MOUSE_LEFT}%`,
-            height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
-          }}
-        />
-      </Box>
-      {
-        projects[Number(id)].projectImages[slide].type ===
-          ProjectImages.IMAGE ? (
-          <img
-            style={{
-              height: mobile ? "auto" : "100vh",
-              width: "100%",
-              objectFit: "cover",
 
-            }}
-            src={projects[Number(id)].projectImages[slide].image}
-            alt={projects[Number(id)].title}
-            loading='lazy'
-          />
-        ) : (
+            position: "absolute",
+            left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
+            top: 0,
+            width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
+            height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
+            zIndex: 5001,
+
+          }}
+        ></Box>
+        <Box
+          display='flex'
+          justifyContent='space-between'
+          alignItems='center'
+          style={{
+            zIndex: 5000,
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+          }}
+        >
           <Box
+            onClick={handleGoLeft}
+            alignItems='center'
             style={{
-              columnCount: 1,
-              maxHeight: "400px",
-              columnGap: "40px",
-              textAlign: "left",
-              maxWidth: "25vw",
-              margin: "5vw",
+              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}
-          >
-            <Typography>
-              {projects[Number(id)].projectImages[slide].text}
-            </Typography>
-          </Box>
-        )
-      }
-    </Box >
+          />
+          <Box
+            onClick={handleGoRight}
+            display='flex'
+            alignItems='center'
+            style={{
+              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
+            }}
+          />
+        </Box>
+        {
+          projects[Number(id)].projectImages[slide].type ===
+            ProjectImages.IMAGE ? (
+            <img
+              style={{
+                height: mobile ? "auto" : "100vh",
+                width: "100%",
+                objectFit: "cover",
+
+              }}
+              src={projects[Number(id)].projectImages[slide].image}
+              alt={projects[Number(id)].title}
+              loading='lazy'
+            />
+          ) : (
+            <Box
+              style={{
+                columnCount: 1,
+                maxHeight: "400px",
+                columnGap: "40px",
+                textAlign: "left",
+                maxWidth: "25vw",
+                margin: "5vw",
+              }}
+            >
+              <Typography>
+                {projects[Number(id)].projectImages[slide].text}
+              </Typography>
+            </Box>
+          )
+        }
+      </Box >
   );
 };
 
