@@ -13,7 +13,9 @@ const generalTypes = {
   UPDATE_LANG: "UPDATE_LANG",
   //
   PROJECT_FILTER: "PROJECT_FILTER",
-  HOVER:"HOVER"
+  HOVER:"HOVER",
+  //
+  FIRST_SLIDE:"FIRST_SLIDE"
 };
 
 export interface GeneralState {
@@ -21,6 +23,7 @@ export interface GeneralState {
   lang: string
   projectFiltering: boolean
   hover:boolean
+  firstSlide:boolean
 }
 
 export default generalTypes;

@@ -6,6 +6,9 @@ import { ProjectImages } from "../../assets/content/types";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { useKeyPress } from "../../hooks/useKeyPress";
+import { useDispatch, useSelector } from "react-redux";
+import { firstSlide } from "../../slicer/general/general.actions";
+import { State } from "../../slicer/types";
 
 const Project = () => {
   const { id } = useParams();
@@ -13,10 +16,22 @@ const Project = () => {
   const navigate = useNavigate();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
+  const dispatch = useDispatch()
+  const firstSlidea = useSelector<State>(
+    (state) => state.general.firstSlide || false
+  );
 
   const leftButton = useKeyPress("ArrowLeft");
   const rightButton = useKeyPress("ArrowRight");
   const escButton = useKeyPress("Escape");
+
+  useEffect(() => {
+    if (slide === 0) { dispatch(firstSlide(true)); return }
+    if (slide !== 0 && !firstSlidea) return
+    dispatch(firstSlide(false))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slide])
 
   useEffect(() => {
     if (leftButton) handleGoLeft()
@@ -111,7 +126,7 @@ const Project = () => {
             onClick={handleGoLeft}
             alignItems='center'
             style={{
-              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              width: slide === 0 ? 0 : `${Limits.LIMIT_MOUSE_LEFT}%`,
               height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}
           />

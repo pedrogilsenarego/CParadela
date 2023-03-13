@@ -60,6 +60,7 @@ const Home = () => {
           {filteredArray.map((item, pos) => {
             return (
               <Grid
+
                 item
                 key={pos}
                 xs={6}

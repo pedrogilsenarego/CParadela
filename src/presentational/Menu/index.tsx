@@ -11,15 +11,12 @@ import Right from "./Right";
 import { hover, updateLang } from "../../slicer/general/general.actions";
 import { useSelector, useDispatch } from "react-redux";
 import { State } from "../../slicer/types";
-import { useLocation } from "react-router";
-import { ROUTE_PATHS } from "../../constants/routes";
 import { i18n } from "../../translations/i18n";
 
 const Menu = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const dispatch = useDispatch()
-  const location = useLocation();
 
   const lang = useSelector<State, string>(
     (state) => state.general.lang || "PT"
@@ -55,18 +52,18 @@ const Menu = () => {
           <Grid item>
             <Left />
           </Grid>
-          {location.pathname === ROUTE_PATHS.HOME && (
-            <Grid item
-              onMouseEnter={() => dispatch(hover(true))}
-              onMouseLeave={() => dispatch(hover(false))}>
-              <Box display="flex" columnGap={2} alignItems="center">
-                <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
-                  <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
-                </Box>
-                <Right />
+
+          <Grid item
+            onMouseEnter={() => dispatch(hover(true))}
+            onMouseLeave={() => dispatch(hover(false))}>
+            <Box display="flex" columnGap={2} alignItems="center">
+              <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
+                <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
               </Box>
-            </Grid>
-          )}
+              <Right />
+            </Box>
+          </Grid>
+
         </Grid>
       </Box>
     );
@@ -83,23 +80,23 @@ const Menu = () => {
             alignItems='center'
             style={{ height: "80px" }}
           >
-            <Grid item xs={location.pathname === ROUTE_PATHS.HOME ? 8 : 12}>
+            <Grid item xs={8}>
               <Left />
             </Grid>
-            {location.pathname === ROUTE_PATHS.HOME && (
-              <Grid item xs={4} textAlign='right' >
+
+            <Grid item xs={4} textAlign='right' >
 
 
-                <Box display="flex" justifyContent="end" alignItems="center" >
-                  <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
-                    <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
-                  </Box>
-                  <Right />
+              <Box display="flex" justifyContent="end" alignItems="center" >
+                <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
+                  <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
                 </Box>
+                <Right />
+              </Box>
 
 
-              </Grid>
-            )}
+            </Grid>
+
           </Grid>
         </Container>
       </Box>

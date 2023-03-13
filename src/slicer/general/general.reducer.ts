@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   lang: "PT",
   projectFiltering: false,
   hover: false,
+  firstSlide:false
 };
 
 interface Action {
@@ -97,7 +98,12 @@ const generalReducer = (state = INITIAL_STATE, action: Action) => {
         ...state,
         hover: action.payload,
       };
-
+      case generalTypes.FIRST_SLIDE:
+        return {
+          ...state,
+          firstSlide: action.payload,
+        };
+  
     default:
       return state;
   }

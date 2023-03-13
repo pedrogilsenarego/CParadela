@@ -34,7 +34,7 @@ const CardMedia = ({
     if (onClick) onClick();
   };
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} >
       {imageLoading && (
         <Typography
           color='white'

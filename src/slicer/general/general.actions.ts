@@ -68,3 +68,8 @@ export const hover = (signal:boolean) => ({
   type: generalTypes.HOVER,
   payload: signal
 })
+
+export const firstSlide = (signal:boolean) => ({
+  type: generalTypes.FIRST_SLIDE,
+  payload: signal
+})

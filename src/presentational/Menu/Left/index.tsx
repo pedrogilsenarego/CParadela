@@ -13,24 +13,24 @@ const Left = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
-  return location.pathname === ROUTE_PATHS.HOME ? (
+  return mobile ?
     <img
       onMouseEnter={() => dispatch(hover(true))}
       onMouseLeave={() => dispatch(hover(false))}
       onClick={() => {
-        navigate(ROUTE_PATHS.ABOUT);
+        navigate(location.pathname === ROUTE_PATHS.HOME ? ROUTE_PATHS.ABOUT : ROUTE_PATHS.HOME);
       }}
       src={Logo}
       alt=''
       height={mobile ? "80px" : "100px"}
       style={{ marginTop: "15px" }}
-    />
-  ) : (
+    /> :
+
     <div
       onMouseEnter={() => dispatch(hover(true))}
       onMouseLeave={() => dispatch(hover(false))}
       onClick={() => {
-        navigate(ROUTE_PATHS.HOME);
+        navigate(location.pathname === ROUTE_PATHS.HOME ? ROUTE_PATHS.ABOUT : ROUTE_PATHS.HOME);
         dispatch(hover(false));
       }}
     >
@@ -56,7 +56,7 @@ const Left = () => {
         {i18n.t("menuBar.subTitle")}
       </Typography>
     </div>
-  );
+
 };
 
 export default Left;

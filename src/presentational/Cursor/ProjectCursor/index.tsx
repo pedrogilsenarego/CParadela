@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { State } from "../../../slicer/types";
 import { Limits } from "./constants";
 
 const ProjectCursor = () => {
@@ -12,6 +14,9 @@ const ProjectCursor = () => {
   const positionPercentageX = (mousePosition.x / windowSize.innerWidth) * 100;
   const positionPercentageY = (mousePosition.y / windowSize.innerHeight) * 100;
 
+  const firstSlide = useSelector<State>(
+    (state) => state.general.firstSlide || false
+  );
   useEffect(() => {
     function handleWindowResize() {
       setWindowSize(getWindowSize());
@@ -54,7 +59,7 @@ const ProjectCursor = () => {
 
   const leftCondition = (positionPercentageX < Limits.LIMIT_MOUSE_LEFT &&
     positionPercentageY < Limits.LIMIT_MOUSE_TOP &&
-    positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM)
+    positionPercentageY > Limits.LIMIT_MOUSE_BOTTOM) && !firstSlide
 
   const rightCondition = (positionPercentageX > Limits.LIMIT_MOUSE_RIGHT &&
     positionPercentageY < Limits.LIMIT_MOUSE_TOP &&

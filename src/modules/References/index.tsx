@@ -6,6 +6,9 @@ import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { useKeyPress } from "../../hooks/useKeyPress";
 import { shuffleArray } from "../../utils/shuffleArray";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "../../slicer/types";
+import { firstSlide } from "../../slicer/general/general.actions";
 
 
 
@@ -20,6 +23,18 @@ const References = () => {
   const leftButton = useKeyPress("ArrowLeft");
   const rightButton = useKeyPress("ArrowRight");
   const escButton = useKeyPress("Escape");
+  const dispatch = useDispatch()
+  const firstSlidea = useSelector<State>(
+    (state) => state.general.firstSlide || false
+  );
+
+  useEffect(() => {
+    if (slide === 0) { dispatch(firstSlide(true)); return }
+    if (slide !== 0 && !firstSlidea) return
+    dispatch(firstSlide(false))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slide])
 
   useEffect(() => {
     const newReferences = [...references]
