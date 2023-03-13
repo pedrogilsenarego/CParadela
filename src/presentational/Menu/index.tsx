@@ -92,7 +92,7 @@ const Menu = () => {
 
               <Box display="flex" justifyContent="end" alignItems="center" >
                 <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
-                  <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>
+                  <Typography mt="8px" fontSize="14px" fontWeight={800}>{lang}</Typography>
                 </Box>
                 <Right />
               </Box>
