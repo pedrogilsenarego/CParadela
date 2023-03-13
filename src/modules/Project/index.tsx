@@ -103,9 +103,9 @@ const Project = () => {
           style={{
 
             position: "absolute",
-            left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
+            right: 0,
             top: 0,
-            width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
+            width: `${Limits.LIMIT_MOUSE_WIDTH}%`,
             height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
             zIndex: 5001,
 
@@ -116,6 +116,7 @@ const Project = () => {
           justifyContent='space-between'
           alignItems='center'
           style={{
+
             zIndex: 5000,
             position: "absolute",
             width: "100%",
@@ -126,6 +127,7 @@ const Project = () => {
             onClick={handleGoLeft}
             alignItems='center'
             style={{
+
               width: slide === 0 ? 0 : `${Limits.LIMIT_MOUSE_LEFT}%`,
               height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}
@@ -135,6 +137,7 @@ const Project = () => {
             display='flex'
             alignItems='center'
             style={{
+
               width: `${Limits.LIMIT_MOUSE_LEFT}%`,
               height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}

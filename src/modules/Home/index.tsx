@@ -13,7 +13,7 @@ const Home = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const extraLarge = useMediaQuery(Theme.breakpoints.up(2000));
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const filteringSignal = useSelector<State>(
@@ -31,16 +31,11 @@ const Home = () => {
 
   const handleClick = (type: string, id: number) => {
     if (type === "project") {
-      navigate(
-        ROUTE_PATHS.PROJECT.replace(":id", id.toString())
-      )
+      navigate(ROUTE_PATHS.PROJECT.replace(":id", id.toString()));
+    } else {
+      navigate(ROUTE_PATHS.REFERENCES.replace(":id", id.toString()));
     }
-    else {
-      navigate(
-        ROUTE_PATHS.REFERENCES.replace(":id", id.toString())
-      )
-    }
-  }
+  };
 
   return (
     <>
@@ -60,22 +55,22 @@ const Home = () => {
           {filteredArray.map((item, pos) => {
             return (
               <Grid
-
                 item
                 key={pos}
                 xs={6}
                 md={4}
                 xl={extraLarge ? 2.4 : 3}
-                onMouseEnter={() => dispatch(hover(true))}
-                onMouseLeave={() => dispatch(hover(false))}
-                onClick={() => { handleClick(item.type, item.id); dispatch(hover(false)) }}>
 
+                onClick={() => {
+                  handleClick(item.type, item.id);
+                  dispatch(hover(false));
+                }}
+              >
                 <CardMedia
                   image={item.projectImages[0].image}
                   title={item.title}
                   key={pos}
                 />
-
               </Grid>
             );
           })}

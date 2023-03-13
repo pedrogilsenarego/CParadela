@@ -71,7 +71,7 @@ const ProjectCursor = () => {
 
 
   const topCondition =
-    positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM && positionPercentageX > Limits.LIMIT_MOUSE_RIGHT
+    positionPercentageY < Limits.LIMIT_MOUSE_BOTTOM && positionPercentageX > 100 - Limits.LIMIT_MOUSE_WIDTH
 
   return (
 
@@ -86,8 +86,8 @@ const ProjectCursor = () => {
         borderLeft: rightCondition ? "25px solid #E3EE31CC" : undefined,
         borderRight: leftCondition ? "25px solid #E3EE31CC" : undefined,
         borderBottom: borderCondition ? "15px solid transparent" : undefined,
-        height: borderCondition || topCondition ? "25px" : "25px",
-        width: borderCondition || topCondition ? "25px" : "25px",
+        height: "25px",
+        width: "25px",
         borderRadius: topCondition || borderCondition ? "0px" : "50%",
         backgroundColor: borderCondition ? "transparent" : "#E3EE31CC",
         transition: "scale 2s ease-in-out",

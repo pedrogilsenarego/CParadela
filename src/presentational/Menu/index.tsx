@@ -54,13 +54,14 @@ const Menu = () => {
           </Grid>
 
           <Grid item
+            onMouseEnter={() => dispatch(hover(true))}
+            onMouseLeave={() => dispatch(hover(false))}
           >
-            <Box display="flex" columnGap={2} alignItems="center" onMouseEnter={() => dispatch(hover(true))}
-              onMouseLeave={() => dispatch(hover(false))}>
+            <Box display="flex" columnGap={2} alignItems="center" >
               <Box display='flex'
                 justifyContent='center'
                 alignItems='center' onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
-                <Typography mt="10px" fontSize="14px" fontWeight={800}>{lang}</Typography>
+                <Typography mt="8px" fontSize="14px" fontWeight={800}>{lang}</Typography>
               </Box>
               <Right />
             </Box>

@@ -61,7 +61,13 @@ const Right = () => {
             )}
           </>
         ) : (
-          <CgMathMinus size='2em' onClick={() => navigate(ROUTE_PATHS.HOME)} />
+          <Box
+            onClick={() => navigate(ROUTE_PATHS.HOME)}
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            style={{ width: "40px", height: "40px" }}
+          ><CgMathMinus size='2em' /></Box>
         )}
       </Grid>
     </Grid>

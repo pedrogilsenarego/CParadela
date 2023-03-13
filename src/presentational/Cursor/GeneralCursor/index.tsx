@@ -14,14 +14,13 @@ const GeneralCursor = () => {
     y: 0,
   });
   const [mouseScroll, setMouseScroll] = useState<number>(0)
-  const [invisible, setInvisible] = useState<boolean>(false)
+  // const [invisible, setInvisible] = useState<boolean>(false)
 
-  console.log(mousePosition.x)
 
-  useEffect(() => {
-    if (mousePosition.x <= 10 || mousePosition.y < 10) setInvisible(true)
-    else setInvisible(false)
-  }, [mousePosition])
+  // useEffect(() => {
+  //   if (mousePosition.x <= 10 || mousePosition.y < 10) setInvisible(true)
+  //   else setInvisible(false)
+  // }, [mousePosition])
 
 
 
@@ -73,7 +72,7 @@ const GeneralCursor = () => {
           "25px",
         borderRadius: "50px",
         transition: "background-color 0.1s ease-in-out",
-        backgroundColor: invisible ? "transparent" : hover ? "#E3EE31CC" : "#255355bb",
+        backgroundColor: hover ? "#E3EE31CC" : "#255355bb",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y + mouseScroll}px, 0)`,
       }}
     />
