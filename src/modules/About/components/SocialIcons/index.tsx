@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import { FiInstagram, FiFacebook } from "react-icons/fi";
+import { FiInstagram } from "react-icons/fi";
 import { FaPinterestP } from "react-icons/fa"
+import { RiFacebookFill } from "react-icons/ri"
 
 const SocialIcons = () => {
   // const IconAvatar = ({ children }: any) => {
@@ -25,7 +26,7 @@ const SocialIcons = () => {
   return (
     <Box display='flex' columnGap={1}>
       <FiInstagram color="black" size="1.5em" />
-      <FiFacebook color="black" size="1.5em" />
+      <RiFacebookFill color="black" size="1.5em" />
       <FaPinterestP color="black" size="1.5em" />
 
     </Box>

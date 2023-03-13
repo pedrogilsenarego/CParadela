@@ -1,10 +1,13 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../constants/routes";
+import { hover } from "../../slicer/general/general.actions";
 import { i18n } from "../../translations/i18n";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -18,26 +21,35 @@ const LandingPage = () => {
       alignItems='center'
       style={{ height: "100vh", width: "100vw", rowGap: "10px" }}
     >
-      <Typography
-        style={{
-          fontSize: mobile ? "14px" : "24px",
-          letterSpacing: "10px",
-          fontWeight: 500,
-          cursor: "pointer",
-        }}
-      >
-        {i18n.t("menuBar.brand")}
-      </Typography>
-      <Typography
-        style={{
-          fontSize: mobile ? "10px" : "16px",
-          letterSpacing: "8px",
-          fontWeight: 500,
-          cursor: "pointer",
-        }}
-      >
-        {i18n.t("menuBar.subTitle")}
-      </Typography>
+      <Box display='flex'
+        flexDirection="column"
+
+        justifyContent='center'
+        alignItems='center' onMouseEnter={() => dispatch(hover(true))}
+        onMouseLeave={() => dispatch(hover(false))}>
+        <Typography
+
+          style={{
+            fontSize: mobile ? "14px" : "24px",
+            letterSpacing: "10px",
+            fontWeight: 500,
+            cursor: "pointer",
+          }}
+        >
+          {i18n.t("menuBar.brand")}
+        </Typography>
+        <Typography
+
+          style={{
+            fontSize: mobile ? "10px" : "16px",
+            letterSpacing: "8px",
+            fontWeight: 500,
+            cursor: "pointer",
+          }}
+        >
+          {i18n.t("menuBar.subTitle")}
+        </Typography>
+      </Box>
     </Box>
   );
 };

@@ -12,13 +12,15 @@ const generalTypes = {
   REMOVE_LAST_ENDPOINT: "REMOVE_LAST_ENDPOINT",
   UPDATE_LANG: "UPDATE_LANG",
   //
-  PROJECT_FILTER: "PROJECT_FILTER"
+  PROJECT_FILTER: "PROJECT_FILTER",
+  HOVER:"HOVER"
 };
 
 export interface GeneralState {
   loading: boolean
   lang: string
   projectFiltering: boolean
+  hover:boolean
 }
 
 export default generalTypes;

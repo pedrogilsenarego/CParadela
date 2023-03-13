@@ -2,6 +2,7 @@ import { Grid, useMediaQuery, useTheme } from "@mui/material";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
+  hover,
   projectFiltering,
 
 } from "../../../slicer/general/general.actions";
@@ -29,7 +30,8 @@ const Right = () => {
 
   return (
     <Grid container alignItems="center" justifyContent={mobile ? "center" : "start"} style={{ paddingTop: "5px" }}>
-      <Grid item>
+      <Grid item onMouseEnter={() => dispatch(hover(true))}
+        onMouseLeave={() => dispatch(hover(false))}>
         {filteringSignal ? (
           <CgMathPlus
             size='2em'

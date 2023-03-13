@@ -33,7 +33,7 @@ const Project = () => {
   const handleGoRight = () => {
     if (projects[Number(id)].projectImages.length > slide + 1)
       setSlide(slide + 1);
-    else return;
+    else setSlide(0);
   };
 
   const handleGoLeft = () => {

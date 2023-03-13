@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import Left from "./Left";
 import Right from "./Right";
-import { updateLang } from "../../slicer/general/general.actions";
+import { hover, updateLang } from "../../slicer/general/general.actions";
 import { useSelector, useDispatch } from "react-redux";
 import { State } from "../../slicer/types";
 import { useLocation } from "react-router";
@@ -26,7 +26,7 @@ const Menu = () => {
   );
 
   const handleChangeLang = () => {
-    changeLanguage(lang === "PT" ? "EN" : "PT")
+    changeLanguage(lang === "PT" ? "en" : "pt")
   }
 
   const changeLanguage = (lng: string) => {
@@ -56,7 +56,9 @@ const Menu = () => {
             <Left />
           </Grid>
           {location.pathname === ROUTE_PATHS.HOME && (
-            <Grid item>
+            <Grid item
+              onMouseEnter={() => dispatch(hover(true))}
+              onMouseLeave={() => dispatch(hover(false))}>
               <Box display="flex" columnGap={2} alignItems="center">
                 <Box onClick={() => { handleChangeLang() }} style={{ padding: "10px" }}>
                   <Typography fontSize="14px" fontWeight={800}>{lang}</Typography>

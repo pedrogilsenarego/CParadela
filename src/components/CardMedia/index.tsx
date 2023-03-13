@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { CardMedia as MuiCardMedia, Typography } from "@mui/material";
 
+import debounce from 'lodash/debounce';
+
 interface Props {
   image: string;
   alt?: string;
@@ -19,7 +21,15 @@ const CardMedia = ({
   title,
 }: Props) => {
   const [imageLoading, setImageLoading] = useState(true);
-  const [hover, setHover] = useState(false)
+  const [hovera, setHover] = useState(false)
+
+
+  const handleHover = debounce((signal) => {
+    setHover(signal);
+
+  }, 100);
+
+
   const handleClick = () => {
     if (onClick) onClick();
   };
@@ -59,12 +69,14 @@ const CardMedia = ({
         onMouseEnter={(e) => {
           e.preventDefault();
           e.stopPropagation();
-          setHover(true)
+
+          handleHover(true)
         }}
         onMouseLeave={(e) => {
           e.preventDefault();
           e.stopPropagation();
-          setHover(false)
+
+          handleHover(false)
         }}
 
       />
@@ -74,7 +86,7 @@ const CardMedia = ({
             position: "absolute",
             bottom: "-30px",
             left: "5px",
-            opacity: hover ? 1 : 0,
+            opacity: hovera ? 1 : 0,
             transition: "all 0.1s ease-in",
             zIndex: -1000,
 

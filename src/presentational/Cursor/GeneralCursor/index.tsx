@@ -1,14 +1,23 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { State } from "../../../slicer/types";
 
 const GeneralCursor = () => {
 
+  const hover = useSelector<State>(
+    (state) => state.general.hover || false
+  );
 
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
   });
   const [mouseScroll, setMouseScroll] = useState<number>(0)
+  const [invisible, setInvisible] = useState<boolean>(false)
+
+  console.log(mousePosition.x)
+
 
 
   useEffect(() => {
@@ -24,12 +33,15 @@ const GeneralCursor = () => {
         x: e.clientX,
         y: e.clientY,
       });
+      // if (mousePosition.x <= 10) { setInvisible(true) }
+      // else setInvisible(false)
     };
 
     window.addEventListener("mousemove", mouseMove);
 
     return () => window.removeEventListener("mousemove", mouseMove);
   }, []);
+
 
   useEffect(() => {
     const scrollMove = () => {
@@ -56,7 +68,8 @@ const GeneralCursor = () => {
         width:
           "25px",
         borderRadius: "50px",
-        backgroundColor: "#255355bb",
+        transition: "background-color 0.08s ease-in-out",
+        backgroundColor: invisible ? "transparent" : hover ? "#E3EE31CC" : "#255355bb",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y + mouseScroll}px, 0)`,
       }}
     />

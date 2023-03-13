@@ -63,3 +63,8 @@ export const projectFiltering = (signal:boolean) => ({
   type: generalTypes.PROJECT_FILTER,
   payload: signal
 })
+
+export const hover = (signal:boolean) => ({
+  type: generalTypes.HOVER,
+  payload: signal
+})

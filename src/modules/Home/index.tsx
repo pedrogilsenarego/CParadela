@@ -1,18 +1,19 @@
 import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import CardMedia from "../../components/CardMedia";
 import { projects, references } from "../../assets/content/projects";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../slicer/types";
 import { shuffleArray } from "../../utils/shuffleArray";
 import { useMemo } from "react";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../constants/routes";
+import { hover } from "../../slicer/general/general.actions";
 
 const Home = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const extraLarge = useMediaQuery(Theme.breakpoints.up(2000));
-
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   const filteringSignal = useSelector<State>(
@@ -64,7 +65,9 @@ const Home = () => {
                 xs={6}
                 md={4}
                 xl={extraLarge ? 2.4 : 3}
-                onClick={() => handleClick(item.type, item.id)}>
+                onMouseEnter={() => dispatch(hover(true))}
+                onMouseLeave={() => dispatch(hover(false))}
+                onClick={() => { handleClick(item.type, item.id); dispatch(hover(false)) }}>
 
                 <CardMedia
                   image={item.projectImages[0].image}

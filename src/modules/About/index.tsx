@@ -10,11 +10,14 @@ import SocialIcons from "./components/SocialIcons";
 import { references } from "../../assets/content/projects";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { useNavigate } from "react-router";
+import { hover } from "../../slicer/general/general.actions";
+import { useDispatch } from "react-redux";
 
 const About = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const renderLaptop = () => {
     return (
@@ -76,9 +79,11 @@ const About = () => {
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='left' key={pos} onClick={() => navigate(
-              ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
-            )}>
+            <Typography align='left' key={pos}
+              onMouseEnter={() => dispatch(hover(true))}
+              onMouseLeave={() => dispatch(hover(false))} onClick={() => navigate(
+                ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+              )}>
               {work?.description}
             </Typography>
           );
@@ -137,9 +142,11 @@ const About = () => {
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='left' key={pos} onClick={() => navigate(
-              ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
-            )}>
+            <Typography align='left' key={pos}
+
+              onClick={() => navigate(
+                ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+              )}>
               {work?.title}
             </Typography>
           );

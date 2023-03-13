@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   apiRequestType: null,
   history: ["/"],
   lang: "PT",
-  projectFiltering: false
+  projectFiltering: false,
+  hover: false,
 };
 
 interface Action {
@@ -74,24 +75,29 @@ const generalReducer = (state = INITIAL_STATE, action: Action) => {
     case generalTypes.SAVE_LAST_ENDPOINT:
       return {
         ...state,
-        history: handleBuildHistory(state.history,action.payload)
-      }
-      case generalTypes.REMOVE_LAST_ENDPOINT:
-        return {
-          ...state,
-          history: handleRemoveLastEndpoint(state.history)
-        }
-        case generalTypes.UPDATE_LANG:
-          return {
-            ...state,
-            lang: action.payload,
-          };
-          case generalTypes.PROJECT_FILTER:
-            return {
-              ...state,
-              projectFiltering: action.payload,
-            };
-    
+        history: handleBuildHistory(state.history, action.payload),
+      };
+    case generalTypes.REMOVE_LAST_ENDPOINT:
+      return {
+        ...state,
+        history: handleRemoveLastEndpoint(state.history),
+      };
+    case generalTypes.UPDATE_LANG:
+      return {
+        ...state,
+        lang: action.payload,
+      };
+    case generalTypes.PROJECT_FILTER:
+      return {
+        ...state,
+        projectFiltering: action.payload,
+      };
+    case generalTypes.HOVER:
+      return {
+        ...state,
+        hover: action.payload,
+      };
+
     default:
       return state;
   }

@@ -47,7 +47,7 @@ const References = () => {
   const handleGoRight = () => {
     if (referencesArrangement.length > slide + 1)
       setSlide(slide + 1);
-    else return;
+    else setSlide(0);
   };
 
   const handleGoLeft = () => {
@@ -55,68 +55,96 @@ const References = () => {
     else return;
   };
 
-  return (
-    <Box
-      display='flex'
-      alignItems='center'
-      justifyContent='start'
-      style={{
-        height: "100vh",
-      }}
-    >
-      <Box
-        onClick={backHome}
-        style={{
-          position: "absolute",
-          left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
-          top: 0,
-          width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
-          height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
-          zIndex: 5001
+  const mobileRender = () => {
+    return (
+      <Box display="flex" flexDirection="column" rowGap={2} style={{ margin: "20px" }}>
+        {referencesArrangement?.map((item: any, pos: number) => {
+          console.log(item.projectImages)
+          return (
 
-        }}
-      ></Box>
+            <Box key={pos}>
+              <img
+
+                style={{
+                  height: mobile ? "auto" : "100vh",
+                  width: "100%",
+                  objectFit: "cover",
+
+                }}
+                src={item.projectImages[0].image}
+                alt={item.projectImages[0].image}
+                loading='lazy'
+              />
+            </Box>)
+
+        })}
+      </Box>
+    )
+  }
+
+  return (
+    mobile ? mobileRender() :
       <Box
         display='flex'
-        justifyContent='space-between'
         alignItems='center'
+        justifyContent='start'
         style={{
-          zIndex: 5000,
-          position: "absolute",
-
-          width: "100%",
-          height: "100%",
+          height: "100vh",
         }}
       >
         <Box
-          onClick={handleGoLeft}
-          alignItems='center'
+          onClick={backHome}
           style={{
-            width: `${Limits.LIMIT_MOUSE_LEFT}%`,
-            height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
+            position: "absolute",
+            left: `${Limits.LIMIT_MOUSE_RIGHT}%`,
+            top: 0,
+            width: `${Limits.LIMIT_MOUSE_RIGHT - Limits.LIMIT_MOUSE_LEFT}%`,
+            height: `${Limits.LIMIT_MOUSE_BOTTOM}%`,
+            zIndex: 5001
+
           }}
-        />
+        ></Box>
         <Box
-          onClick={handleGoRight}
           display='flex'
+          justifyContent='space-between'
           alignItems='center'
           style={{
-            width: `${Limits.LIMIT_MOUSE_LEFT}%`,
-            height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
+            zIndex: 5000,
+            position: "absolute",
+
+            width: "100%",
+            height: "100%",
           }}
+        >
+          <Box
+            onClick={handleGoLeft}
+            alignItems='center'
+            style={{
+              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
+            }}
+          />
+          <Box
+            onClick={handleGoRight}
+            display='flex'
+            alignItems='center'
+            style={{
+              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
+            }}
+          />
+        </Box>
+        <img
+          style={{
+            height: mobile ? "auto" : "100vh",
+            minWidth: "100%",
+            objectFit: "cover",
+          }}
+          src={referencesArrangement[slide]?.projectImages[0]?.image}
+          alt={referencesArrangement[slide]?.title}
+          loading='lazy'
         />
       </Box>
-      <img
-        style={{
-          height: mobile ? "auto" : "100vh",
-          minWidth: "100%",
-          objectFit: "cover",
-        }}
-        src={referencesArrangement[slide]?.projectImages[0]?.image}
-        alt={referencesArrangement[slide]?.title}
-        loading='lazy'
-      />
-    </Box>
   );
 };
 
