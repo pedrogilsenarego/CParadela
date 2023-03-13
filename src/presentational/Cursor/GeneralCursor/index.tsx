@@ -72,7 +72,7 @@ const GeneralCursor = () => {
         width:
           "25px",
         borderRadius: "50px",
-        transition: "background-color 0.08s ease-in-out",
+        transition: "background-color 0.1s ease-in-out",
         backgroundColor: invisible ? "transparent" : hover ? "#E3EE31CC" : "#255355bb",
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y + mouseScroll}px, 0)`,
       }}

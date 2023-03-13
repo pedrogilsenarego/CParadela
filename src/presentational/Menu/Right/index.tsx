@@ -1,4 +1,4 @@
-import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -40,9 +40,24 @@ const Right = () => {
         {location.pathname === ROUTE_PATHS.HOME ? (
           <>
             {filteringSignal ? (
-              <CgMathPlus size='2em' onClick={handleFilter} />
+              <Box
+                onClick={handleFilter}
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                style={{ width: "40px", height: "40px" }}
+              >
+                <CgMathPlus size='2em' />
+              </Box>
             ) : (
-              <CgMathMinus size='2em' onClick={handleFilter} />
+              <Box
+                onClick={handleFilter}
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                style={{ width: "40px", height: "40px" }}
+              >
+                <CgMathMinus size='2em' /></Box>
             )}
           </>
         ) : (
