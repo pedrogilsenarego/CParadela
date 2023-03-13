@@ -18,6 +18,11 @@ const GeneralCursor = () => {
 
   console.log(mousePosition.x)
 
+  useEffect(() => {
+    if (mousePosition.x <= 10 || mousePosition.y < 10) setInvisible(true)
+    else setInvisible(false)
+  }, [mousePosition])
+
 
 
   useEffect(() => {
@@ -33,8 +38,7 @@ const GeneralCursor = () => {
         x: e.clientX,
         y: e.clientY,
       });
-      // if (mousePosition.x <= 10) { setInvisible(true) }
-      // else setInvisible(false)
+
     };
 
     window.addEventListener("mousemove", mouseMove);
