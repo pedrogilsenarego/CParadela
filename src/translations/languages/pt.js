@@ -8,7 +8,7 @@ export const content = {
       },
       menuBar: {
         brand: "CONDE PARADELA",
-        subTitle: "Arquitectura",
+        subTitle: "architects",
         home: "Home",
         books: "Livros",
         about: "Sobre nós",

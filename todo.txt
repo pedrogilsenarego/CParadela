@@ -1,2 +1,7 @@
 retirar scroll bars nos projectos/ref
 icons de redes sociais
+triangulos
+mudar a cor nos clickaveis
+linguagem
+fim dos projectos volta ao zero
+trocar fb para cheio

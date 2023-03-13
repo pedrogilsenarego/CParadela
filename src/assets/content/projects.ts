@@ -21,7 +21,7 @@ export const projects = [
       {
         type: ProjectImages.IMAGE,
         image:
-          "https://www.edx.org/static/bfb3565666d1bd78f05ff77f5c19057c/learn_architecture.jpg",
+          "https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
       },
       {
         type: ProjectImages.TEXT,
@@ -48,7 +48,7 @@ export const projects = [
       {
         type: ProjectImages.IMAGE,
         image:
-          "https://www.edx.org/static/bfb3565666d1bd78f05ff77f5c19057c/learn_architecture.jpg",
+          "https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
       },
       {
         type: ProjectImages.TEXT,
@@ -75,7 +75,7 @@ export const projects = [
       {
         type: ProjectImages.IMAGE,
         image:
-          "https://www.edx.org/static/bfb3565666d1bd78f05ff77f5c19057c/learn_architecture.jpg",
+          "https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
       },
       {
         type: ProjectImages.TEXT,
@@ -91,6 +91,7 @@ export const references = [
     id: 0,
     type: "reference",
     title: "reference0",
+    description: "Teste referencia 0",
     projectImages: [
      
       {
@@ -106,12 +107,13 @@ export const references = [
     id: 1,
     type: "reference",
     title: "reference1",
+    description: "Teste referencia 0",
     projectImages: [
     
       {
         type: ProjectImages.IMAGE,
         image:
-          "https://www.edx.org/static/bfb3565666d1bd78f05ff77f5c19057c/learn_architecture.jpg",
+          "https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
       },
     ],
     mainText: i18n.t("projects.projectBlueM"),
@@ -120,6 +122,7 @@ export const references = [
     id: 2,
     type: "reference",
     title: "reference2",
+    description: "Teste referencia 0",
     projectImages: [
       {
         type: ProjectImages.IMAGE,
@@ -134,6 +137,7 @@ export const references = [
     id: 3,
     type: "reference",
     title: "reference3",
+    description: "Teste referencia 0",
     projectImages: [
       {
         type: ProjectImages.IMAGE,

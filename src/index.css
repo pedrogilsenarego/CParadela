@@ -4,7 +4,13 @@
    url("./assets/fonts/Gotham-Light.otf") format("opentype");
   font-weight: normal;
   }
-  
+  @font-face {
+    font-family: "Gotham-Book";
+    src: local("Gotham-Book"),
+     url("./assets/fonts/Gotham-Book.otf") format("opentype");
+    font-weight: normal;
+    }
+
 
 body *, body button {
   cursor: none !important; 

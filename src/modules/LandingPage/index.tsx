@@ -16,7 +16,7 @@ const LandingPage = () => {
 
       justifyContent='center'
       alignItems='center'
-      style={{ height: "100vh", width: "100vw", rowGap: "20px" }}
+      style={{ height: "100vh", width: "100vw", rowGap: "10px" }}
     >
       <Typography
         style={{
@@ -31,7 +31,7 @@ const LandingPage = () => {
       <Typography
         style={{
           fontSize: mobile ? "10px" : "16px",
-          letterSpacing: "6px",
+          letterSpacing: "8px",
           fontWeight: 500,
           cursor: "pointer",
         }}

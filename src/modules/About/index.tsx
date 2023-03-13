@@ -22,9 +22,30 @@ const About = () => {
         style={{
           position: "relative",
           marginLeft: "80px",
+          marginTop: "20px"
+
         }}
       >
-        <Box textAlign='left'>
+
+        <Typography
+          align='left'
+          style={{ whiteSpace: "pre-line", width: "40%", marginTop: "40px" }}
+        >
+          {i18n.t("modules.about.mainText")}
+        </Typography>
+        <Typography
+          align='left'
+          style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
+        >
+          {i18n.t("modules.about.second")}
+        </Typography>
+        <Typography
+          align='left'
+          style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
+        >
+          {i18n.t("modules.about.third")}
+        </Typography>
+        <Box textAlign='left' mt="50px">
           <Typography>{i18n.t("modules.about.email")}</Typography>
           <Box onClick={() =>
             window.location.replace(
@@ -36,45 +57,29 @@ const About = () => {
               {i18n.t("modules.about.address")}
             </Typography>
           </Box>
-          <Box mt='10px'>
-            <SocialIcons />
-          </Box>
+
+        </Box>
+        <Box mt='10px'>
+          <SocialIcons />
         </Box>
         <Typography
-          align='justify'
-          style={{ whiteSpace: "pre-line", width: "40%", marginTop: "40px" }}
-        >
-          {i18n.t("modules.about.mainText")}
-        </Typography>
-        <Typography
-          align='justify'
-          style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
-        >
-          {i18n.t("modules.about.second")}
-        </Typography>
-        <Typography
-          align='justify'
-          style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
-        >
-          {i18n.t("modules.about.third")}
-        </Typography>
-        <Typography
-          align='justify'
+          align='left'
           style={{
             marginTop: "60px",
             whiteSpace: "pre-line",
             width: "40%",
             fontWeight: "600",
+            marginBottom: "10px"
           }}
         >
           {i18n.t("modules.about.works")}
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='justify' style={{ marginTop: "10px" }} key={pos} onClick={() => navigate(
+            <Typography align='left' key={pos} onClick={() => navigate(
               ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
             )}>
-              {work?.title}
+              {work?.description}
             </Typography>
           );
         })}
@@ -85,7 +90,23 @@ const About = () => {
   const renderMobile = () => {
     return (
       <Container>
-        <Box textAlign='left'>
+
+        <Typography align='left' style={{ marginTop: "40px" }}>
+          {i18n.t("modules.about.mainText")}
+        </Typography>
+        <Typography
+          align='left'
+          style={{ marginTop: "40px", whiteSpace: "pre-line" }}
+        >
+          {i18n.t("modules.about.second")}
+        </Typography>
+        <Typography
+          align='left'
+          style={{ marginTop: "40px", whiteSpace: "pre-line" }}
+        >
+          {i18n.t("modules.about.third")}
+        </Typography>
+        <Box textAlign='left' mt="50px">
           <Typography>{i18n.t("modules.about.email")}</Typography>
           <Box onClick={() =>
             window.location.replace(
@@ -103,27 +124,12 @@ const About = () => {
             <SocialIcons />
           </Box>
         </Box>
-        <Typography align='justify' style={{ marginTop: "40px" }}>
-          {i18n.t("modules.about.mainText")}
-        </Typography>
         <Typography
-          align='justify'
-          style={{ marginTop: "40px", whiteSpace: "pre-line" }}
-        >
-          {i18n.t("modules.about.second")}
-        </Typography>
-        <Typography
-          align='justify'
-          style={{ marginTop: "40px", whiteSpace: "pre-line" }}
-        >
-          {i18n.t("modules.about.third")}
-        </Typography>
-        <Typography
-          align='justify'
+          align='left'
           style={{
             marginTop: "60px",
             whiteSpace: "pre-line",
-
+            marginBottom: "10px",
             fontWeight: "600",
           }}
         >
@@ -131,7 +137,7 @@ const About = () => {
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='justify' style={{ marginTop: "10px" }} key={pos} onClick={() => navigate(
+            <Typography align='left' key={pos} onClick={() => navigate(
               ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
             )}>
               {work?.title}

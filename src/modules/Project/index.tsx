@@ -63,7 +63,7 @@ const Project = () => {
                 />
               </Box>) :
               <Box
-                style={{ textAlign: "justify", }}
+                style={{ textAlign: "left", }}
               >
                 <Typography>
                   {item.text}

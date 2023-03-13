@@ -12,10 +12,11 @@ import Cursor from "./presentational/Cursor";
 const theme = createTheme({
   typography: {
     allVariants: {
-      fontFamily: 'Gotham',
+      fontFamily: 'Gotham-Book',
       textTransform: 'none',
-      fontSize: 16,
-      caretColor: "transparent"
+      fontSize: 14,
+      caretColor: "transparent",
+      letterSpacing: "3px",
     },
   },
 });

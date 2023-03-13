@@ -77,7 +77,7 @@ const CardMedia = ({
             opacity: hover ? 1 : 0,
             transition: "all 0.1s ease-in",
             zIndex: -1000,
-            fontSize: "20px"
+
           }}
         >
           {title}
