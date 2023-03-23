@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 
+
 const GeneralCursor = () => {
 
   const hover = useSelector<State>(
@@ -14,13 +15,13 @@ const GeneralCursor = () => {
     y: 0,
   });
   const [mouseScroll, setMouseScroll] = useState<number>(0)
-  // const [invisible, setInvisible] = useState<boolean>(false)
+  const [invisible, setInvisible] = useState<boolean>(false)
 
 
-  // useEffect(() => {
-  //   if (mousePosition.x <= 10 || mousePosition.y < 10) setInvisible(true)
-  //   else setInvisible(false)
-  // }, [mousePosition])
+  useEffect(() => {
+    if (mousePosition.x <= 1 || mousePosition.y < 1) setInvisible(true)
+    else setInvisible(false)
+  }, [mousePosition])
 
 
 
@@ -57,11 +58,14 @@ const GeneralCursor = () => {
 
 
   return (
+
     <Box
+      className="pointer"
       display='flex'
       justifyContent='center'
       alignItems='center'
       style={{
+        opacity: invisible ? 0 : 1,
         pointerEvents: "none",
         position: "absolute",
         left: 0,
@@ -77,6 +81,7 @@ const GeneralCursor = () => {
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y + mouseScroll}px, 0)`,
       }}
     />
+
 
   );
 };

@@ -13,6 +13,12 @@ const ProjectCursor = () => {
 
   const positionPercentageX = (mousePosition.x / windowSize.innerWidth) * 100;
   const positionPercentageY = (mousePosition.y / windowSize.innerHeight) * 100;
+  const [invisible, setInvisible] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (mousePosition.x <= 1 || mousePosition.y < 1) setInvisible(true)
+    else setInvisible(false)
+  }, [mousePosition])
 
   const firstSlide = useSelector<State>(
     (state) => state.general.firstSlide || false
@@ -81,6 +87,7 @@ const ProjectCursor = () => {
         position: "absolute",
         left: 0,
         top: 0,
+        opacity: invisible ? 0 : 1,
         pointerEvents: "none",
         zIndex: 1000,
         borderTop: borderCondition ? "15px solid transparent" : undefined,
