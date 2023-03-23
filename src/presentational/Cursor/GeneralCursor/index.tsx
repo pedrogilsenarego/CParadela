@@ -34,8 +34,8 @@ const GeneralCursor = () => {
       e.preventDefault(); // Cancel the native event
       e.stopPropagation(); // Don't bubble/capture the event any further
       setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
+        x: e.clientX - 12,
+        y: e.clientY - 12,
       });
 
     };
@@ -62,6 +62,7 @@ const GeneralCursor = () => {
       justifyContent='center'
       alignItems='center'
       style={{
+        pointerEvents: "none",
         position: "absolute",
         left: 0,
         top: 0,

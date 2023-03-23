@@ -44,8 +44,8 @@ const ProjectCursor = () => {
       e.preventDefault(); // Cancel the native event
       e.stopPropagation(); // Don't bubble/capture the event any further
       setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
+        x: e.clientX - 12,
+        y: e.clientY - 12,
       });
     };
 
@@ -81,6 +81,7 @@ const ProjectCursor = () => {
         position: "absolute",
         left: 0,
         top: 0,
+        pointerEvents: "none",
         zIndex: 1000,
         borderTop: borderCondition ? "15px solid transparent" : undefined,
         borderLeft: rightCondition ? "25px solid #E3EE31CC" : undefined,

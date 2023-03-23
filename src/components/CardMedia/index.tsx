@@ -34,7 +34,7 @@ const CardMedia = ({
   const handleHover2 = debounce((signal) => {
     dispatch(hover(signal));
 
-  }, 80);
+  }, 100);
 
 
   const handleClick = () => {
@@ -71,6 +71,7 @@ const CardMedia = ({
             //cursor: "pointer",
             opacity: imageLoading ? 0 : 1,
 
+
           }}
           component='img'
           height={height || "auto"}
@@ -82,12 +83,14 @@ const CardMedia = ({
             e.stopPropagation();
 
             handleHover(true)
+            handleHover2(true)
           }}
           onMouseLeave={(e) => {
             e.preventDefault();
             e.stopPropagation();
 
             handleHover(false)
+            handleHover2(false)
           }}
 
         />
