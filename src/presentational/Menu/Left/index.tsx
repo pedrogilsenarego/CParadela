@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { i18n } from "../../../translations/i18n";
@@ -14,17 +14,18 @@ const Left = () => {
   const dispatch = useDispatch();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   return mobile ?
-    <img
-      onMouseEnter={() => dispatch(hover(true))}
-      onMouseLeave={() => dispatch(hover(false))}
-      onClick={() => {
-        navigate(location.pathname === ROUTE_PATHS.HOME ? ROUTE_PATHS.ABOUT : ROUTE_PATHS.HOME);
-      }}
-      src={Logo}
-      alt=''
-      height={mobile ? "80px" : "100px"}
-      style={{ marginTop: "15px" }}
-    /> :
+    <Box display="flex" >
+      <img
+        onMouseEnter={() => dispatch(hover(true))}
+        onMouseLeave={() => dispatch(hover(false))}
+        onClick={() => {
+          navigate(location.pathname === ROUTE_PATHS.HOME ? ROUTE_PATHS.ABOUT : ROUTE_PATHS.HOME);
+        }}
+        src={Logo}
+        alt=''
+        height={mobile ? "80px" : "100px"}
+        style={{ marginTop: "15px" }}
+      /></Box> :
 
     <div
       onMouseEnter={() => dispatch(hover(true))}

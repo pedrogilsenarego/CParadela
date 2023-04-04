@@ -87,7 +87,7 @@ const Menu = () => {
           <Grid
             container
             columnSpacing={1}
-            justifyContent='start'
+            justifyContent='center'
             alignItems='center'
             style={{ height: "80px" }}
           >
