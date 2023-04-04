@@ -1,10 +1,12 @@
 import Header from "../presentational/Menu";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { hover } from "../slicer/general/general.actions";
 
 const HomepageLayout = (props: any) => {
   const dispatch = useDispatch();
+  const Theme = useTheme()
+  const mobile = useMediaQuery(Theme.breakpoints.down("sm"))
 
   return (
     <>
@@ -32,8 +34,8 @@ const HomepageLayout = (props: any) => {
           onMouseEnter={() => dispatch(hover(true))}
           onMouseLeave={() => dispatch(hover(false))}
           fontSize='0.6rem'
-          mt='100px'
-          mb='15px'
+          mt={mobile ? "20px" : '100px'}
+          mb={mobile ? "25px" : '15px'}
           style={{ cursor: "pointer" }}
         >
           Web projects&nbsp;&#183;&nbsp;Pedro Sena Rego
