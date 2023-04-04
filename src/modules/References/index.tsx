@@ -19,7 +19,7 @@ const References = () => {
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
   const [referencesArrangement, setReferencesArrangement] = useState<any>([])
-
+  const [firstTime, setFirstTime] = useState(true)
   const leftButton = useKeyPress("ArrowLeft");
   const rightButton = useKeyPress("ArrowRight");
   const escButton = useKeyPress("Escape");
@@ -29,7 +29,7 @@ const References = () => {
   );
 
   useEffect(() => {
-    if (slide === 0) { dispatch(firstSlide(true)); return }
+    if (slide === 0 && firstTime) { dispatch(firstSlide(true)); return }
     if (slide !== 0 && !firstSlidea) return
     dispatch(firstSlide(false))
 
@@ -62,12 +62,13 @@ const References = () => {
   const handleGoRight = () => {
     if (referencesArrangement.length > slide + 1)
       setSlide(slide + 1);
-    else setSlide(0);
+    else { setSlide(0); setFirstTime(false) };
   };
 
   const handleGoLeft = () => {
     if (slide > 0) setSlide(slide - 1);
-    else return;
+    else if (!firstTime) setSlide(referencesArrangement.length - 1);
+    else return
   };
 
   const mobileRender = () => {
@@ -136,7 +137,7 @@ const References = () => {
             onClick={handleGoLeft}
             alignItems='center'
             style={{
-              width: `${Limits.LIMIT_MOUSE_LEFT}%`,
+              width: slide === 0 && firstTime ? 0 : `${Limits.LIMIT_MOUSE_LEFT}%`,
               height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}
           />

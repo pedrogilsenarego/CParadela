@@ -1,1 +1,2 @@
-retirar scroll bars nos projectos/ref
+colocar links facebook, etc
+projectos so nao da para voltar para tras a primeira vez que se entra

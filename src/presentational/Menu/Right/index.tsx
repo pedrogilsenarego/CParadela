@@ -7,6 +7,7 @@ import {
 } from "../../../slicer/general/general.actions";
 import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 import { State } from "../../../slicer/types";
+import { RxCross1 } from "react-icons/rx"
 import { ROUTE_PATHS } from "../../../constants/routes";
 
 const Right = () => {
@@ -67,7 +68,7 @@ const Right = () => {
             justifyContent='center'
             alignItems='center'
             style={{ width: "40px", height: "40px" }}
-          ><CgMathMinus size='2em' /></Box>
+          ><RxCross1 size='2em' /></Box>
         )}
       </Grid>
     </Grid>

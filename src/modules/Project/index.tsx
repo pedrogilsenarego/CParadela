@@ -16,6 +16,7 @@ const Project = () => {
   const navigate = useNavigate();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const [slide, setSlide] = useState(0);
+  const [firstTime, setFirstTime] = useState(true)
   const dispatch = useDispatch()
   const firstSlidea = useSelector<State>(
     (state) => state.general.firstSlide || false
@@ -26,7 +27,7 @@ const Project = () => {
   const escButton = useKeyPress("Escape");
 
   useEffect(() => {
-    if (slide === 0) { dispatch(firstSlide(true)); return }
+    if (slide === 0 && firstTime) { dispatch(firstSlide(true)); return }
     if (slide !== 0 && !firstSlidea) return
     dispatch(firstSlide(false))
 
@@ -48,12 +49,13 @@ const Project = () => {
   const handleGoRight = () => {
     if (projects[Number(id)].projectImages.length > slide + 1)
       setSlide(slide + 1);
-    else setSlide(0);
+    else { setSlide(0); setFirstTime(false) };
   };
 
   const handleGoLeft = () => {
     if (slide > 0) setSlide(slide - 1);
-    else return;
+    else if (!firstTime) setSlide(projects[Number(id)].projectImages.length - 1);
+    else return
   };
 
   const mobileRender = () => {
@@ -128,7 +130,7 @@ const Project = () => {
             alignItems='center'
             style={{
 
-              width: slide === 0 ? 0 : `${Limits.LIMIT_MOUSE_LEFT}%`,
+              width: slide === 0 && firstTime ? 0 : `${Limits.LIMIT_MOUSE_LEFT}%`,
               height: `${Limits.LIMIT_MOUSE_TOP - Limits.LIMIT_MOUSE_BOTTOM}%`,
             }}
           />

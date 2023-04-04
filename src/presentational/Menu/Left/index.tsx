@@ -45,7 +45,7 @@ const Left = () => {
       >
         {i18n.t("menuBar.brand")}
       </Typography>
-      <Typography
+      {/* <Typography
         style={{
           fontSize: mobile ? "12px" : "16px",
           letterSpacing: "8px",
@@ -54,7 +54,7 @@ const Left = () => {
         }}
       >
         {i18n.t("menuBar.subTitle")}
-      </Typography>
+      </Typography> */}
     </div>
 
 };
