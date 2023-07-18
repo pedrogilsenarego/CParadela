@@ -1,17 +1,17 @@
 import {
   Box,
-  Grid,
   Container,
-  useTheme,
-  useMediaQuery,
+  Grid,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-import Left from "./Left";
-import Right from "./Right";
+import { useDispatch, useSelector } from "react-redux";
 import { hover, updateLang } from "../../slicer/general/general.actions";
-import { useSelector, useDispatch } from "react-redux";
 import { State } from "../../slicer/types";
 import { i18n } from "../../translations/i18n";
+import Left from "./Left";
+import Right from "./Right";
 
 const Menu = () => {
   const Theme = useTheme();
@@ -45,8 +45,8 @@ const Menu = () => {
       >
         <Grid
           container
-          justifyContent='space-between'
-          alignItems='center'
+          justifyContent="space-between"
+          alignItems="center"
           style={{ height: "80px" }}
         >
           <Grid item>
@@ -58,17 +58,22 @@ const Menu = () => {
             onMouseEnter={() => dispatch(hover(true))}
             onMouseLeave={() => dispatch(hover(false))}
           >
-            <Box display='flex' columnGap={2} alignItems='center'>
+            <Box display="flex" columnGap={2} alignItems="center">
               <Box
-                display='flex'
-                justifyContent='center'
-                alignItems='center'
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
                 onClick={() => {
                   handleChangeLang();
                 }}
                 style={{ padding: "10px" }}
               >
-                <Typography mt='8px' fontSize='14px' fontWeight={800}>
+                <Typography
+                  mt="8px"
+                  fontSize="14px"
+                  fontWeight={800}
+                  style={{ textTransform: "lowercase" }}
+                >
                   {lang}
                 </Typography>
               </Box>
@@ -87,23 +92,23 @@ const Menu = () => {
           <Grid
             container
             columnSpacing={1}
-            justifyContent='center'
-            alignItems='center'
+            justifyContent="center"
+            alignItems="center"
             style={{ height: "80px" }}
           >
             <Grid item xs={8}>
               <Left />
             </Grid>
 
-            <Grid item xs={4} textAlign='right'>
-              <Box display='flex' justifyContent='end' alignItems='center'>
+            <Grid item xs={4} textAlign="right">
+              <Box display="flex" justifyContent="end" alignItems="center">
                 <Box
                   onClick={() => {
                     handleChangeLang();
                   }}
                   style={{ padding: "10px" }}
                 >
-                  <Typography mt='8px' fontSize='14px' fontWeight={800}>
+                  <Typography mt="8px" fontSize="14px" fontWeight={800}>
                     {lang}
                   </Typography>
                 </Box>
