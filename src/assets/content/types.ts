@@ -1,13 +1,13 @@
 export interface Project {
-  id:number
+  id: number;
   type: "project" | "ref";
-  title: string
-  projectImages: string[];
+  title: string;
+  projectImages: any[];
   mainText: string;
 }
 
-export enum ProjectImages {
-  IMAGE= "IMAGE",
-  TEXT= "TEXT",
-  VIDEO= "VIDEO"
+export enum ProjectImage {
+  IMAGE = "IMAGE",
+  TEXT = "TEXT",
+  VIDEO = "VIDEO",
 }

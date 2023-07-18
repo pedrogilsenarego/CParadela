@@ -1,13 +1,13 @@
-import { Grid, useTheme, useMediaQuery } from "@mui/material";
-import CardMedia from "../../components/CardMedia";
-import { projects, references } from "../../assets/content/projects";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../slicer/types";
-import { shuffleArray } from "../../utils/shuffleArray";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { projects, references } from "../../assets/content/projects";
+import CardMedia from "../../components/CardMedia";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { hover } from "../../slicer/general/general.actions";
+import { State } from "../../slicer/types";
+import { shuffleArray } from "../../utils/shuffleArray";
 
 const Home = () => {
   const Theme = useTheme();
@@ -20,13 +20,15 @@ const Home = () => {
     (state) => state.general.projectFiltering || false
   );
 
+  const lang = useSelector<State, string>((state) => state.general.lang);
+
   const list = projects.concat(references);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const shuffledArray = useMemo(() => shuffleArray(list), []);
   const filteredArray = filteringSignal
     ? shuffledArray.filter((obj) => {
-      return obj.type === "project";
-    })
+        return obj.type === "project";
+      })
     : shuffledArray;
 
   const handleClick = (type: string, id: number) => {
@@ -50,7 +52,7 @@ const Home = () => {
           container
           columnSpacing={mobile ? "20px" : "40px"}
           rowSpacing={mobile ? "20px" : "40px"}
-          alignItems='center'
+          alignItems="center"
         >
           {filteredArray.map((item, pos) => {
             return (
@@ -60,7 +62,6 @@ const Home = () => {
                 xs={6}
                 md={4}
                 xl={extraLarge ? 2.4 : 3}
-
                 onClick={() => {
                   handleClick(item.type, item.id);
                   dispatch(hover(false));
@@ -68,7 +69,7 @@ const Home = () => {
               >
                 <CardMedia
                   image={item.projectImages[0].image}
-                  title={item.title}
+                  title={lang === "PT" ? item.title : item.titleEN}
                   key={pos}
                 />
               </Grid>
