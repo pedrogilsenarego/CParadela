@@ -1,4 +1,3 @@
-import { i18n } from "../../translations/i18n";
 import {
   Box,
   Container,
@@ -6,18 +5,24 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import SocialIcons from "./components/SocialIcons";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { references } from "../../assets/content/projects";
 import { ROUTE_PATHS } from "../../constants/routes";
-import { useNavigate } from "react-router";
 import { hover } from "../../slicer/general/general.actions";
-import { useDispatch } from "react-redux";
+import { State } from "../../slicer/types";
+import { i18n } from "../../translations/i18n";
+import SocialIcons from "./components/SocialIcons";
 
 const About = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const lang = useSelector<State, string>(
+    (state) => state.general.lang || "PT"
+  );
 
   const renderLaptop = () => {
     return (
@@ -25,66 +30,70 @@ const About = () => {
         style={{
           position: "relative",
           marginLeft: "80px",
-          marginTop: "20px"
-
+          marginTop: "20px",
         }}
       >
-
         <Typography
-          align='left'
+          align="left"
           style={{ whiteSpace: "pre-line", width: "40%", marginTop: "40px" }}
         >
           {i18n.t("modules.about.mainText")}
         </Typography>
         <Typography
-          align='left'
+          align="left"
           style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
         >
           {i18n.t("modules.about.second")}
         </Typography>
         <Typography
-          align='left'
+          align="left"
           style={{ marginTop: "40px", whiteSpace: "pre-line", width: "40%" }}
         >
           {i18n.t("modules.about.third")}
         </Typography>
-        <Box textAlign='left' mt="50px">
+        <Box textAlign="left" mt="50px">
           <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Box onClick={() =>
-            window.location.replace(
-              `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
-            )
-          }>
-            <Typography
-              style={{ whiteSpace: "pre-line" }}>
+          <Box
+            onClick={() =>
+              window.location.replace(
+                `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
+              )
+            }
+          >
+            <Typography style={{ whiteSpace: "pre-line" }}>
               {i18n.t("modules.about.address")}
             </Typography>
           </Box>
-
         </Box>
-        <Box mt='10px'>
+        <Box mt="10px">
           <SocialIcons />
         </Box>
         <Typography
-          align='left'
+          align="left"
           style={{
             marginTop: "60px",
             whiteSpace: "pre-line",
             width: "40%",
             fontWeight: "600",
-            marginBottom: "10px"
+            marginBottom: "10px",
           }}
         >
           {i18n.t("modules.about.works")}
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='left' key={pos}
+            <Typography
+              align="left"
+              key={pos}
               onMouseEnter={() => dispatch(hover(true))}
-              onMouseLeave={() => dispatch(hover(false))} onClick={() => navigate(
-                ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
-              )}>
-              {work?.description}
+              onMouseLeave={() => dispatch(hover(false))}
+              onClick={() =>
+                navigate(
+                  ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+                )
+              }
+            >
+              {lang === "PT" ? work?.title : work?.titleEN}
             </Typography>
           );
         })}
@@ -95,42 +104,40 @@ const About = () => {
   const renderMobile = () => {
     return (
       <Container>
-
-        <Typography align='left' style={{ marginTop: "40px" }}>
+        <Typography align="left" style={{ marginTop: "40px" }}>
           {i18n.t("modules.about.mainText")}
         </Typography>
         <Typography
-          align='left'
+          align="left"
           style={{ marginTop: "40px", whiteSpace: "pre-line" }}
         >
           {i18n.t("modules.about.second")}
         </Typography>
         <Typography
-          align='left'
+          align="left"
           style={{ marginTop: "40px", whiteSpace: "pre-line" }}
         >
           {i18n.t("modules.about.third")}
         </Typography>
-        <Box textAlign='left' mt="50px">
+        <Box textAlign="left" mt="50px">
           <Typography>{i18n.t("modules.about.email")}</Typography>
-          <Box onClick={() =>
-            window.location.replace(
-              `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
-            )
-          }>
-            <Typography
-
-              style={{ whiteSpace: "pre-line", marginTop: "10px" }}
-            >
+          <Box
+            onClick={() =>
+              window.location.replace(
+                `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
+              )
+            }
+          >
+            <Typography style={{ whiteSpace: "pre-line", marginTop: "10px" }}>
               {i18n.t("modules.about.address")}
             </Typography>
           </Box>
-          <Box mt='10px'>
+          <Box mt="10px">
             <SocialIcons />
           </Box>
         </Box>
         <Typography
-          align='left'
+          align="left"
           style={{
             marginTop: "60px",
             whiteSpace: "pre-line",
@@ -142,11 +149,15 @@ const About = () => {
         </Typography>
         {references.map((work, pos) => {
           return (
-            <Typography align='left' key={pos}
-
-              onClick={() => navigate(
-                ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
-              )}>
+            <Typography
+              align="left"
+              key={pos}
+              onClick={() =>
+                navigate(
+                  ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
+                )
+              }
+            >
               {work?.title}
             </Typography>
           );

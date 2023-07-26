@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { CardMedia as MuiCardMedia, Typography } from "@mui/material";
+import { useState } from "react";
 
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
 import { useDispatch } from "react-redux";
 import { hover } from "../../slicer/general/general.actions";
 
@@ -23,29 +23,25 @@ const CardMedia = ({
   title,
 }: Props) => {
   const [imageLoading, setImageLoading] = useState(true);
-  const [hovera, setHover] = useState(false)
-  const dispatch = useDispatch()
+  const [hovera, setHover] = useState(false);
+  const dispatch = useDispatch();
 
   const handleHover = debounce((signal) => {
     setHover(signal);
-
   }, 100);
 
   const handleHover2 = debounce((signal) => {
     dispatch(hover(signal));
-
   }, 100);
-
 
   const handleClick = () => {
     if (onClick) onClick();
   };
   return (
-    <div style={{ position: "relative" }}
-    >
+    <div style={{ position: "relative" }}>
       {imageLoading && (
         <Typography
-          color='white'
+          color="white"
           style={{
             position: "absolute",
             top: 0,
@@ -61,19 +57,15 @@ const CardMedia = ({
           Loading...
         </Typography>
       )}
-      <div
-
-      >
+      <div>
         <MuiCardMedia
           onLoad={() => setImageLoading(false)}
           style={{
             borderRadius: borderRadius ?? "0px",
             //cursor: "pointer",
             opacity: imageLoading ? 0 : 1,
-
-
           }}
-          component='img'
+          component="img"
           height={height || "auto"}
           image={image}
           alt={alt || ""}
@@ -82,37 +74,36 @@ const CardMedia = ({
             e.preventDefault();
             e.stopPropagation();
 
-            handleHover(true)
-            handleHover2(true)
+            handleHover(true);
+            handleHover2(true);
           }}
           onMouseLeave={(e) => {
             e.preventDefault();
             e.stopPropagation();
 
-            handleHover(false)
-            handleHover2(false)
+            handleHover(false);
+            handleHover2(false);
           }}
-
         />
       </div>
-      {
-        title && (
-          <Typography
-            style={{
-              position: "absolute",
-              bottom: "-30px",
-              left: "5px",
-              opacity: hovera ? 1 : 0,
-              transition: "all 0.1s ease-in",
-              zIndex: -1000,
-
-            }}
-          >
-            {title}
-          </Typography>
-        )
-      }
-    </div >
+      {title && (
+        <Typography
+          style={{
+            position: "absolute",
+            top: "100%", // Position the element below its container's top edge
+            lineHeight: "18px",
+            left: "5px",
+            opacity: hovera ? 1 : 0,
+            transition: "all 0.1s ease-in",
+            zIndex: -1000,
+            textOverflow: "ellipsis",
+            textAlign: "start",
+          }}
+        >
+          {title}
+        </Typography>
+      )}
+    </div>
   );
 };
 
