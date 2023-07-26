@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { references } from "../../assets/content/projects";
+import { projects, references } from "../../assets/content/projects";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { hover } from "../../slicer/general/general.actions";
 import { State } from "../../slicer/types";
@@ -80,7 +80,7 @@ const About = () => {
         >
           {i18n.t("modules.about.works")}
         </Typography>
-        {references.map((work, pos) => {
+        {projects.map((work, pos) => {
           return (
             <Typography
               align="left"

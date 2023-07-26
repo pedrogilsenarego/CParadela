@@ -90,9 +90,10 @@ const CardMedia = ({
         <Typography
           style={{
             position: "absolute",
-            top: "100%", // Position the element below its container's top edge
-            lineHeight: "18px",
+            top: "101%", // Position the element below its container's top edge
+            lineHeight: "16px",
             left: "5px",
+            fontSize: "12px",
             opacity: hovera ? 1 : 0,
             transition: "all 0.1s ease-in",
             zIndex: -1000,

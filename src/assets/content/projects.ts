@@ -10,7 +10,7 @@ export const projects: any[] = [
     projectImages: [
       {
         type: ProjectImage.IMAGE,
-        objectFit: "cover",
+        //objectFit: "cover",
         image:
           "https://res.cloudinary.com/dynqpxdd7/image/upload/v1690366432/CONDE%20PARADELA%20website/01%20Projectos/01%20Casa%20em%20Porto%20Covo/CFR_01_b6ekng.webp",
       },
@@ -95,7 +95,7 @@ export const projects: any[] = [
     projectImages: [
       {
         type: ProjectImage.IMAGE,
-        objectFit: "cover",
+        //objectFit: "cover",
         image:
           "https://res.cloudinary.com/dynqpxdd7/image/upload/v1690363284/CONDE%20PARADELA%20website/01%20Projectos/02%20Creche%20do%20Areeiro/CAA_01_fdat1j.webp",
       },
@@ -140,7 +140,7 @@ export const projects: any[] = [
     projectImages: [
       {
         type: ProjectImage.IMAGE,
-        objectFit: "cover",
+        //objectFit: "cover",
         image:
           "https://res.cloudinary.com/dynqpxdd7/image/upload/v1690363827/CONDE%20PARADELA%20website/01%20Projectos/04%20Habita%C3%A7%C3%A3o%20multifamiliar%20em%20Almada/HES_01_woufnj.webp",
       },
@@ -189,7 +189,7 @@ export const projects: any[] = [
     projectImages: [
       {
         type: ProjectImage.IMAGE,
-        objectFit: "cover",
+        //objectFit: "cover",
         image:
           "https://res.cloudinary.com/dynqpxdd7/image/upload/v1690364091/CONDE%20PARADELA%20website/01%20Projectos/05%20Habita%C3%A7%C3%A3o%20multifamiliar%20em%20Lisboa/HAC_01_mliznk.webp",
       },
