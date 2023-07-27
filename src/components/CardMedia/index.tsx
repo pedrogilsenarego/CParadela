@@ -26,6 +26,13 @@ const CardMedia = ({
   const [hovera, setHover] = useState(false);
   const dispatch = useDispatch();
 
+  const modifiedImageUrl = `${image.substring(
+    0,
+    image.indexOf("/upload/") + 8
+  )}q_auto:low/${image.substring(image.indexOf("/upload/") + 8)}`;
+
+  console.log(modifiedImageUrl);
+
   const handleHover = debounce((signal) => {
     setHover(signal);
   }, 100);
@@ -40,22 +47,18 @@ const CardMedia = ({
   return (
     <div style={{ position: "relative" }}>
       {imageLoading && (
-        <Typography
-          color="white"
+        <div
           style={{
+            height: "50px",
+            width: "50px",
+            backgroundColor: "yellow",
             position: "absolute",
-            top: 0,
-            bottom: 0,
-            marginTop: "auto",
-            marginBottom: "auto",
-            left: 0,
-            right: 0,
-            marginLeft: "auto",
-            marginRight: "auto",
+            opacity: 0.2,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
           }}
-        >
-          Loading...
-        </Typography>
+        ></div>
       )}
       <div>
         <MuiCardMedia
@@ -67,7 +70,7 @@ const CardMedia = ({
           }}
           component="img"
           height={height || "auto"}
-          image={image}
+          image={modifiedImageUrl}
           alt={alt || ""}
           onClick={handleClick}
           onMouseEnter={(e) => {
