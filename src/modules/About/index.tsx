@@ -68,7 +68,7 @@ const About = () => {
         <Box mt="10px">
           <SocialIcons />
         </Box>
-        <Typography
+        {/* <Typography
           align="left"
           style={{
             marginTop: "60px",
@@ -96,7 +96,7 @@ const About = () => {
               {lang === "PT" ? work?.title : work?.titleEN}
             </Typography>
           );
-        })}
+        })}*/}
       </div>
     );
   };
@@ -136,6 +136,7 @@ const About = () => {
             <SocialIcons />
           </Box>
         </Box>
+        {/*
         <Typography
           align="left"
           style={{
@@ -161,7 +162,7 @@ const About = () => {
               {work?.title}
             </Typography>
           );
-        })}
+        })}*/}
       </Container>
     );
   };
