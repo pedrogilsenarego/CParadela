@@ -66,7 +66,7 @@ const CardMedia = ({
           }}
         ></div>
       )}
-      <div>
+      <div style={{ position: "relative" }}>
         <MuiCardMedia
           onLoad={() => setImageLoading(false)}
           style={{
@@ -94,25 +94,25 @@ const CardMedia = ({
             handleHover2(false);
           }}
         />
+        {title && (
+          <Typography
+            style={{
+              position: "absolute",
+              top: "101%", // Position the element below its container's top edge
+              lineHeight: "16px",
+              left: "5px",
+              fontSize: "12px",
+              opacity: hovera ? 1 : 0,
+              transition: "all 0.1s ease-in",
+              zIndex: -1000,
+              textOverflow: "ellipsis",
+              textAlign: "start",
+            }}
+          >
+            {title}
+          </Typography>
+        )}
       </div>
-      {title && (
-        <Typography
-          style={{
-            position: "absolute",
-            top: "101%", // Position the element below its container's top edge
-            lineHeight: "16px",
-            left: "5px",
-            fontSize: "12px",
-            opacity: hovera ? 1 : 0,
-            transition: "all 0.1s ease-in",
-            zIndex: -1000,
-            textOverflow: "ellipsis",
-            textAlign: "start",
-          }}
-        >
-          {title}
-        </Typography>
-      )}
     </div>
   );
 };
