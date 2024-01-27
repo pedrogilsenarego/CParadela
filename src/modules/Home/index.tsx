@@ -66,6 +66,7 @@ const Home = () => {
                   handleClick(item.type, item.id);
                   dispatch(hover(false));
                 }}
+                style={{ aspectRatio: 1 }}
               >
                 <CardMedia
                   image={item.projectImages[0].image}

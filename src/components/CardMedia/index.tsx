@@ -31,8 +31,6 @@ const CardMedia = ({
     image.indexOf("/upload/") + 8
   )}q_auto:low/${image.substring(image.indexOf("/upload/") + 8)}`;
 
-  console.log(modifiedImageUrl);
-
   const handleHover = debounce((signal) => {
     setHover(signal);
   }, 100);
@@ -45,13 +43,21 @@ const CardMedia = ({
     if (onClick) onClick();
   };
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {imageLoading && (
         <div
           style={{
             height: "50px",
             width: "50px",
-            backgroundColor: "yellow",
+            backgroundColor: "#FFFF00",
             position: "absolute",
             opacity: 0.2,
             top: "50%",
