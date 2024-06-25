@@ -54,6 +54,8 @@ const About = () => {
         <Box textAlign="left" mt="50px">
           <Typography>{i18n.t("modules.about.email")}</Typography>
           <Box
+            onMouseEnter={() => dispatch(hover(true))}
+            onMouseLeave={() => dispatch(hover(false))}
             onClick={() =>
               window.location.replace(
                 `http://maps.google.com/?q=${i18n.t("modules.about.address")}`
@@ -65,7 +67,7 @@ const About = () => {
             </Typography>
           </Box>
         </Box>
-        <Box mt="10px">
+        <Box mt="40px">
           <SocialIcons />
         </Box>
         {/* <Typography
@@ -132,7 +134,7 @@ const About = () => {
               {i18n.t("modules.about.address")}
             </Typography>
           </Box>
-          <Box mt="10px">
+          <Box mt="30px">
             <SocialIcons />
           </Box>
         </Box>

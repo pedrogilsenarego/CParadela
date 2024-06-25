@@ -7,28 +7,28 @@ import { i18n } from "../../translations/i18n";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
       onClick={() => navigate(ROUTE_PATHS.HOME)}
-      display='flex'
+      display="flex"
       flexDirection="column"
-
-      justifyContent='center'
-      alignItems='center'
+      justifyContent="center"
+      alignItems="center"
       style={{ height: "100vh", width: "100vw", rowGap: "10px" }}
     >
-      <Box display='flex'
+      <Box
+        display="flex"
         flexDirection="column"
-
-        justifyContent='center'
-        alignItems='center' onMouseEnter={() => dispatch(hover(true))}
-        onMouseLeave={() => dispatch(hover(false))}>
+        justifyContent="center"
+        alignItems="center"
+        onMouseEnter={() => dispatch(hover(true))}
+        onMouseLeave={() => dispatch(hover(false))}
+      >
         <Typography
-
           style={{
             fontSize: mobile ? "14px" : "24px",
             letterSpacing: "10px",
@@ -39,7 +39,6 @@ const LandingPage = () => {
           {i18n.t("menuBar.brand")}
         </Typography>
         <Typography
-
           style={{
             fontSize: mobile ? "10px" : "16px",
             letterSpacing: "8px",
@@ -48,6 +47,19 @@ const LandingPage = () => {
           }}
         >
           {i18n.t("menuBar.subTitle")}
+        </Typography>
+        <Typography
+          style={{
+            marginTop: "100px",
+            fontSize: mobile ? "20px" : "26px",
+            letterSpacing: "8px",
+            textAlign: "center",
+            fontWeight: 500,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
+        >
+          Website Under Construction
         </Typography>
       </Box>
     </Box>

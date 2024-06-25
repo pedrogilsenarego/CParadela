@@ -37,8 +37,11 @@ const HomepageLayout = (props: any) => {
           mt={mobile ? "20px" : "100px"}
           mb={mobile ? "25px" : "15px"}
           style={{
+            textAlign: "left",
             cursor: "pointer",
             textTransform: "lowercase",
+            marginLeft: mobile ? "20px" : "80px",
+            marginRight: mobile ? "20px" : "80px",
           }}
         >
           Web projects&nbsp;&#183;&nbsp;Pedro Sena Rego
