@@ -7,7 +7,7 @@ import {
 } from "../../../slicer/general/general.actions";
 
 import { State } from "../../../slicer/types";
-import { RxCross1 } from "react-icons/rx";
+
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { i18n } from "../../../translations/i18n";
 
