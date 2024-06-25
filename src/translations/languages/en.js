@@ -15,6 +15,10 @@ export const content = {
         contacts: "Contacts",
         instagram: "Instagram",
       },
+      header: {
+        references: "references",
+        projects: "projects",
+      },
       footer: {},
       modules: {
         home: {

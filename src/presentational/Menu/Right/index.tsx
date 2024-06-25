@@ -1,14 +1,15 @@
-import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {
   hover,
   projectFiltering,
 } from "../../../slicer/general/general.actions";
-import { CgMathPlus, CgMathMinus } from "react-icons/cg";
+
 import { State } from "../../../slicer/types";
-import { RxCross1 } from "react-icons/rx"
+import { RxCross1 } from "react-icons/rx";
 import { ROUTE_PATHS } from "../../../constants/routes";
+import { i18n } from "../../../translations/i18n";
 
 const Right = () => {
   const filteringSignal = useSelector<State>(
@@ -27,51 +28,38 @@ const Right = () => {
   const location = useLocation();
 
   return (
-    <Grid
-      container
-      alignItems='center'
-      justifyContent={mobile ? "center" : "start"}
-      style={{ paddingTop: "5px" }}
+    <Box
+      style={{ padding: "10px" }}
+      display={"flex"}
+      alignItems="center"
+      justifyContent={mobile ? "center" : "center"}
     >
-      <Grid
-        item
-        onMouseEnter={() => dispatch(hover(true))}
-        onMouseLeave={() => dispatch(hover(false))}
-      >
-        {location.pathname === ROUTE_PATHS.HOME ? (
-          <>
-            {filteringSignal ? (
-              <Box
-                onClick={handleFilter}
-                display='flex'
-                justifyContent='center'
-                alignItems='center'
-                style={{ width: "40px", height: "40px" }}
-              >
-                <CgMathPlus size='2em' />
-              </Box>
-            ) : (
-              <Box
-                onClick={handleFilter}
-                display='flex'
-                justifyContent='center'
-                alignItems='center'
-                style={{ width: "40px", height: "40px" }}
-              >
-                <CgMathMinus size='2em' /></Box>
-            )}
-          </>
-        ) : (
-          <Box
-            onClick={() => navigate(ROUTE_PATHS.HOME)}
-            display='flex'
-            justifyContent='center'
-            alignItems='center'
-            style={{ width: "40px", height: "40px" }}
-          ><RxCross1 size='2em' /></Box>
-        )}
-      </Grid>
-    </Grid>
+      {location.pathname === ROUTE_PATHS.HOME && (
+        <>
+          {filteringSignal ? (
+            <Typography
+              mt="8px"
+              onClick={handleFilter}
+              fontSize="14px"
+              fontWeight={800}
+              style={{ textTransform: "lowercase" }}
+            >
+              {i18n.t("header.references")}
+            </Typography>
+          ) : (
+            <Typography
+              mt="8px"
+              onClick={handleFilter}
+              fontSize="14px"
+              fontWeight={800}
+              style={{ textTransform: "lowercase" }}
+            >
+              {i18n.t("header.projects")}
+            </Typography>
+          )}
+        </>
+      )}
+    </Box>
   );
 };
 

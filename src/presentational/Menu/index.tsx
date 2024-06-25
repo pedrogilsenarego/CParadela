@@ -12,11 +12,16 @@ import { State } from "../../slicer/types";
 import { i18n } from "../../translations/i18n";
 import Left from "./Left";
 import Right from "./Right";
+import { useLocation, useNavigate } from "react-router";
+import { ROUTE_PATHS } from "../../constants/routes";
+import { RxCross1 } from "react-icons/rx";
 
 const Menu = () => {
   const Theme = useTheme();
   const mobile = useMediaQuery(Theme.breakpoints.down("sm"));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const lang = useSelector<State, string>(
     (state) => state.general.lang || "PT"
@@ -64,6 +69,26 @@ const Menu = () => {
                 justifyContent="center"
                 alignItems="center"
                 onClick={() => {
+                  navigate(ROUTE_PATHS.ABOUT);
+                }}
+                style={{ padding: "10px" }}
+              >
+                <Typography
+                  mt="8px"
+                  fontSize="14px"
+                  fontWeight={800}
+                  style={{ textTransform: "lowercase" }}
+                >
+                  info
+                </Typography>
+              </Box>
+
+              {location.pathname === ROUTE_PATHS.HOME && <Right />}
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                onClick={() => {
                   handleChangeLang();
                 }}
                 style={{ padding: "10px" }}
@@ -74,10 +99,20 @@ const Menu = () => {
                   fontWeight={800}
                   style={{ textTransform: "lowercase" }}
                 >
-                  {lang}
+                  {lang === "PT" ? "en" : "pt"}
                 </Typography>
               </Box>
-              <Right />
+              {location.pathname !== ROUTE_PATHS.HOME && (
+                <Box
+                  onClick={() => navigate(ROUTE_PATHS.HOME)}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  style={{ padding: "10px" }}
+                >
+                  <RxCross1 size="0.8em" style={{ marginTop: "8px" }} />
+                </Box>
+              )}
             </Box>
           </Grid>
         </Grid>
