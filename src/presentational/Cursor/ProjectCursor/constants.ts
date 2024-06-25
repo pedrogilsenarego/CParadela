@@ -1,8 +1,7 @@
-export  enum Limits {
-  LIMIT_MOUSE_TOP = 70,
+export enum Limits {
+  LIMIT_MOUSE_TOP = 80,
   LIMIT_MOUSE_WIDTH = 20,
-  LIMIT_MOUSE_BOTTOM = 30,
+  LIMIT_MOUSE_BOTTOM = 20,
   LIMIT_MOUSE_LEFT = 50,
-  LIMIT_MOUSE_RIGHT = 50
+  LIMIT_MOUSE_RIGHT = 50,
 }
-
