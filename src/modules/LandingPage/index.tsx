@@ -51,12 +51,11 @@ const LandingPage = () => {
         <Typography
           style={{
             marginTop: "100px",
-            fontSize: mobile ? "20px" : "26px",
+            fontSize: mobile ? "10px" : "16px",
             letterSpacing: "8px",
             textAlign: "center",
             fontWeight: 500,
             cursor: "pointer",
-            textDecoration: "underline",
           }}
         >
           Website Under Construction

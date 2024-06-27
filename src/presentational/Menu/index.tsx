@@ -110,7 +110,7 @@ const Menu = () => {
                   alignItems="center"
                   style={{ padding: "10px" }}
                 >
-                  <RxCross1 size="0.8em" style={{ marginTop: "8px" }} />
+                  <RxCross1 size="20px" style={{ marginTop: "8px" }} />
                 </Box>
               )}
             </Box>
