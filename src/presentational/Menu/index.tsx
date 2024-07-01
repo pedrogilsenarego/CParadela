@@ -137,6 +137,7 @@ const Menu = () => {
 
             <Grid item xs={4} textAlign="right">
               <Box display="flex" justifyContent="end" alignItems="center">
+                <Right />
                 <Box
                   onClick={() => {
                     handleChangeLang();
@@ -144,10 +145,9 @@ const Menu = () => {
                   style={{ padding: "10px" }}
                 >
                   <Typography mt="8px" fontSize="14px" fontWeight={800}>
-                    {lang}
+                    {lang.toLowerCase()}
                   </Typography>
                 </Box>
-                <Right />
               </Box>
             </Grid>
           </Grid>

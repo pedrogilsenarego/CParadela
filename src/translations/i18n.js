@@ -9,7 +9,7 @@ i18n
   .init({
     debug: false,
     defaultNS: ["translations"],
-    fallbackLng: "pt",
+    fallbackLng: "en",
     ns: ["translations"],
     resources: content,
   });

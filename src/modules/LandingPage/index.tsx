@@ -58,7 +58,7 @@ const LandingPage = () => {
             cursor: "pointer",
           }}
         >
-          Website Under Construction
+          website under construction
         </Typography>
       </Box>
     </Box>

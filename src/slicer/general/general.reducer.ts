@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   apiRequestMessage: "",
   apiRequestType: null,
   history: ["/"],
-  lang: "PT",
+  lang: "EN",
   projectFiltering: false,
   hover: false,
   firstSlide: false,

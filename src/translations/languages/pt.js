@@ -17,7 +17,7 @@ export const content = {
       },
       header: {
         references: "referências",
-        projects: "projetos",
+        projects: "projectos",
       },
       footer: {},
       modules: {

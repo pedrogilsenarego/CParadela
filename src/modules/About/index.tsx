@@ -67,38 +67,13 @@ const About = () => {
             </Typography>
           </Box>
         </Box>
-        <Box mt="40px">
+        <Box
+          mt="40px"
+          onMouseEnter={() => dispatch(hover(true))}
+          onMouseLeave={() => dispatch(hover(false))}
+        >
           <SocialIcons />
         </Box>
-        {/* <Typography
-          align="left"
-          style={{
-            marginTop: "60px",
-            whiteSpace: "pre-line",
-            width: "40%",
-            fontWeight: "600",
-            marginBottom: "10px",
-          }}
-        >
-          {i18n.t("modules.about.works")}
-        </Typography>
-        {projects.map((work, pos) => {
-          return (
-            <Typography
-              align="left"
-              key={pos}
-              onMouseEnter={() => dispatch(hover(true))}
-              onMouseLeave={() => dispatch(hover(false))}
-              onClick={() =>
-                navigate(
-                  ROUTE_PATHS.REFERENCES.replace(":id", work?.id?.toString())
-                )
-              }
-            >
-              {lang === "PT" ? work?.title : work?.titleEN}
-            </Typography>
-          );
-        })}*/}
       </div>
     );
   };
