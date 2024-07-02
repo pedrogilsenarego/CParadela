@@ -154,9 +154,7 @@ const Project = () => {
           style={{
             height: mobile ? "auto" : "100vh",
             width: "100%",
-            objectFit:
-              projects[Number(id)]?.projectImages[slide]?.objectFit ||
-              "contain",
+            objectFit: "contain",
           }}
           src={projects[Number(id)].projectImages[slide].image}
           alt={projects[Number(id)].title}
