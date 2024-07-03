@@ -9,6 +9,7 @@ import { useKeyPress } from "../../hooks/useKeyPress";
 import { Limits } from "../../presentational/Cursor/ProjectCursor/constants";
 import { firstSlide } from "../../slicer/general/general.actions";
 import { State } from "../../slicer/types";
+import DynamicColumnsBox from "./DinamicText";
 
 const Project = () => {
   const { id } = useParams();
@@ -161,25 +162,12 @@ const Project = () => {
           loading="lazy"
         />
       ) : (
-        <Box
-          style={{
-            columnCount: 1,
-            maxHeight: "400px",
-            columnGap: "40px",
-            textAlign: "left",
-            maxWidth: "25vw",
-            margin: "5vw",
-          }}
-        >
-          <Typography
-            dangerouslySetInnerHTML={{
-              __html:
-                lang === "PT"
-                  ? projects[Number(id)]?.projectImages[slide]?.text
-                  : projects[Number(id)]?.projectImages[slide]?.textEN || "",
-            }}
-          />
-        </Box>
+        <DynamicColumnsBox
+          id={id}
+          projects={projects}
+          lang={lang}
+          slide={slide}
+        />
       )}
     </Box>
   );
