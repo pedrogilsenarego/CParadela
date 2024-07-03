@@ -163,6 +163,8 @@ const Project = () => {
         />
       ) : (
         <DynamicColumnsBox
+          handleGoLeft={handleGoLeft}
+          handleGoRight={handleGoRight}
           id={id}
           projects={projects}
           lang={lang}
